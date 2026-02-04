@@ -39,20 +39,23 @@ export default function Navbar() {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: trigger ? alpha(theme.palette.background.paper, 0.9) : "background.paper",
+          backgroundColor: trigger
+            ? alpha(theme.palette.background.paper, 0.9)
+            : "background.paper",
           backdropFilter: trigger ? "blur(8px)" : "none",
           transition: "all 200ms ease",
-        }}
-      >
+        }}>
         <Toolbar
           sx={{
             justifyContent: "space-between",
             px: { xs: 2, md: 4, lg: 4, xl: 14 },
-          }}
-        >
+          }}>
           {/* Logo */}
 
-          <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            component={Link}
+            to="/"
+            sx={{ display: "flex", alignItems: "center" }}>
             <Box
               component="img"
               src={logo}
@@ -64,9 +67,16 @@ export default function Navbar() {
           </Box>
 
           {/* Desktop links */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+          <Box
+            sx={{ display: { xs: "none", md: "flex" }, gap: { lg: 1, xl: 2 } }}>
             {pages.map((p) => (
-              <Button variant="nav" key={p.path} component={NavLink} to={p.path} end={p.path === "/"} sx={{}}>
+              <Button
+                variant="nav"
+                key={p.path}
+                component={NavLink}
+                to={p.path}
+                end={p.path === "/"}
+                sx={{}}>
                 {p.label}
               </Button>
             ))}
@@ -76,7 +86,10 @@ export default function Navbar() {
           </Box>
 
           {/* Mobile menu */}
-          <IconButton sx={{ display: { xs: "flex", md: "none" } }} color="primary" onClick={() => setOpen(true)}>
+          <IconButton
+            sx={{ display: { xs: "flex", md: "none" } }}
+            color="primary"
+            onClick={() => setOpen(true)}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
@@ -88,7 +101,10 @@ export default function Navbar() {
           <List>
             {pages.map((p) => (
               <ListItem key={p.path} disablePadding>
-                <ListItemButton component={Link} to={p.path} onClick={() => setOpen(false)}>
+                <ListItemButton
+                  component={Link}
+                  to={p.path}
+                  onClick={() => setOpen(false)}>
                   {p.label}
                 </ListItemButton>
               </ListItem>

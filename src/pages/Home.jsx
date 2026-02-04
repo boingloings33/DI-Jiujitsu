@@ -6,31 +6,70 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Cards from "../components/Cards.jsx";
 import { alpha } from "@mui/material/styles";
 import AnimatedTextLink from "../components/AnimatedTextLink";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-<Button variant="hero" endIcon={<ArrowForwardIcon />}>
-  Begin Your Journey
-</Button>;
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(useGSAP);
 
 export default function Home() {
   const accentColor = "#a3a3a344";
+  const heroBgRef = useRef(null);
+  useEffect(() => {
+    if (!heroBgRef.current) return;
+
+    const tl = gsap.to(heroBgRef.current, {
+      y: "-20%", // background moves slower than scroll
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroBgRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true, // smooth scrolling effect
+      },
+    });
+
+    return () => {
+      if (tl.scrollTrigger) tl.scrollTrigger.kill(); // cleanup
+    };
+  }, []);
   return (
-    <Box>
-      {/* 1) HERO (bg image later) */}
+    <>
+      {/* 1) HERO */}
       <Box
         component="section"
         id="hero"
         sx={{
+          position: "relative", // necessary for absolute bg
+          overflow: "hidden",
           minHeight: { xs: "70vh", md: "100vh" },
           display: "flex",
           alignItems: "center",
-          backgroundImage: `url(${heroBg})`,
           justifyContent: "center",
           textAlign: "center",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}>
-        {/* Content container ONLY */}
-        <Box maxWidth="600px">
+        {/* Background image */}
+        <Box
+          ref={heroBgRef}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "120%", // slightly bigger for smooth parallax
+            backgroundImage: `url(${heroBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            zIndex: -1,
+          }}
+        />
+
+        {/* Content */}
+        <Box maxWidth="600px" sx={{ px: 2 }}>
           <Typography variant="h1" gutterBottom>
             Daniel Island Jiu Jitsu
           </Typography>
@@ -242,6 +281,6 @@ export default function Home() {
           </Button>
         </Container>
       </Box>
-    </Box>
+    </>
   );
 }
