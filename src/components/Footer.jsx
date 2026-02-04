@@ -25,20 +25,32 @@ export default function Footer() {
         backgroundColor: "primary.main",
         borderTop: "1px solid",
         borderColor: "divider",
-        mt: 8,
+
         py: 6,
-      }}
-    >
+      }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4} justifyContent="space-between" alignItems="flex-start">
+        <Grid
+          container
+          spacing={4}
+          justifyContent="space-between"
+          alignItems="flex-start">
           {/* Column 1 — Logo + blurb */}
           <Grid item xs={12} md={3}>
             <Box sx={{ mb: 2 }}>
-              <Box component="img" src={logo} alt="Logo" sx={{ height: 40, mb: 2 }} />
+              <Box
+                component="img"
+                src={logo}
+                alt="Logo"
+                sx={{ height: 40, mb: 2 }}
+              />
 
-              <Typography variant="body2" color="text.footerAlt" sx={{ maxWidth: 270 }}>
-                A place of discipline, respect, and mastery. Dedicated to the traditional art of Brazilian Jiu
-                Jitsu and the cultivation of the human spirit.
+              <Typography
+                variant="body2"
+                color="text.footerAlt"
+                sx={{ maxWidth: 270 }}>
+                A place of discipline, respect, and mastery. Dedicated to the
+                traditional art of Brazilian Jiu Jitsu and the cultivation of
+                the human spirit.
               </Typography>
             </Box>
           </Grid>
@@ -48,7 +60,13 @@ export default function Footer() {
             <Typography variant="footerSubtitle" gutterBottom>
               Explore
             </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1, marginTop: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
+                marginTop: 3,
+              }}>
               {pages.map((page) => (
                 <Typography
                   key={page.path}
@@ -61,8 +79,7 @@ export default function Footer() {
                     "&:hover": {
                       opacity: 0.8,
                     },
-                  }}
-                >
+                  }}>
                   {page.label}
                 </Typography>
               ))}
@@ -76,10 +93,23 @@ export default function Footer() {
             <Typography variant="footerSubtitle" gutterBottom>
               Visit Us
             </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
               {/* Address */}
-              <Box sx={{ display: "flex", gap: 1.5, alignItems: "flex-start", maxWidth: 300 }}>
-                <LocationOnOutlinedIcon sx={{ color: "text.footerAlt", position: "relative", left: -4 }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 1.5,
+                  alignItems: "flex-start",
+                  maxWidth: 300,
+                }}>
+                <LocationOnOutlinedIcon
+                  sx={{
+                    color: "text.footerAlt",
+                    position: "relative",
+                    left: -4,
+                  }}
+                />
                 <Typography variant="footerNav" color="text.footerAlt">
                   126 Seven Farms Drive, Suite 270 Daniel Island, SC 29492
                 </Typography>
@@ -87,7 +117,13 @@ export default function Footer() {
 
               {/* Phone */}
               <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
-                <PhoneOutlinedIcon sx={{ color: "text.footerAlt", position: "relative", left: -4 }} />
+                <PhoneOutlinedIcon
+                  sx={{
+                    color: "text.footerAlt",
+                    position: "relative",
+                    left: -4,
+                  }}
+                />
                 <Typography variant="footerNav" color="text.footerAlt">
                   (555) 555-555
                 </Typography>
@@ -95,7 +131,13 @@ export default function Footer() {
 
               {/* Email */}
               <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
-                <EmailOutlinedIcon sx={{ color: "text.footerAlt", position: "relative", left: -4 }} />
+                <EmailOutlinedIcon
+                  sx={{
+                    color: "text.footerAlt",
+                    position: "relative",
+                    left: -4,
+                  }}
+                />
                 <Typography variant="footerNav" color="text.footerAlt">
                   email@email.com
                 </Typography>
@@ -110,7 +152,8 @@ export default function Footer() {
             <Typography variant="footerSubtitle" gutterBottom>
               Connect
             </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
               {/* Social icons row */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <Box
@@ -120,8 +163,7 @@ export default function Footer() {
                     color: "text.footerAlt",
                     display: "flex",
                     "&:hover": { opacity: 0.7 },
-                  }}
-                >
+                  }}>
                   <FacebookOutlinedIcon />
                 </Box>
 
@@ -132,14 +174,16 @@ export default function Footer() {
                     color: "text.footerAlt",
                     display: "flex",
                     "&:hover": { opacity: 0.7 },
-                  }}
-                >
+                  }}>
                   <InstagramIcon />
                 </Box>
               </Box>
 
               {/* Copyright */}
-              <Typography variant="footerAlt" color="text.footerAlt" sx={{ maxWidth: 170, marginTop: 2 }}>
+              <Typography
+                variant="footerAlt"
+                color="text.footerAlt"
+                sx={{ maxWidth: 170, marginTop: 2 }}>
                 © 2026 Daniel Island Jiu Jitsu. All rights reserved.
               </Typography>
             </Box>
