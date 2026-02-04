@@ -18,18 +18,17 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Toolbar />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/programs" element={<Programs />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
       <Footer />
     </>
   );

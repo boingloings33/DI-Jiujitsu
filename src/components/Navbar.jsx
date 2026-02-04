@@ -39,12 +39,17 @@ export default function Navbar() {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: trigger ? alpha(theme.palette.background.paper, 0.6) : "background.paper",
+          backgroundColor: trigger ? alpha(theme.palette.background.paper, 0.9) : "background.paper",
           backdropFilter: trigger ? "blur(8px)" : "none",
           transition: "all 200ms ease",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between", px: { md: 14 } }}>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            px: { xs: 2, md: 4, lg: 4, xl: 14 },
+          }}
+        >
           {/* Logo */}
 
           <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
@@ -59,25 +64,9 @@ export default function Navbar() {
           </Box>
 
           {/* Desktop links */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
             {pages.map((p) => (
-              <Button
-                key={p.path}
-                component={NavLink}
-                to={p.path}
-                end={p.path === "/"}
-                sx={{
-                  color: "text.secondary",
-                  textTransform: "uppercase",
-                  fontWeight: "regular",
-                  letterSpacing: 1.4,
-                  "&:hover": { color: "text.green" },
-                  "&.active": {
-                    color: "text.green",
-                    fontWeight: 700,
-                  },
-                }}
-              >
+              <Button variant="nav" key={p.path} component={NavLink} to={p.path} end={p.path === "/"} sx={{}}>
                 {p.label}
               </Button>
             ))}

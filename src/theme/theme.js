@@ -6,11 +6,12 @@ const BRAND = {
   primary: "#113D5D",
   secondary: "#006255",
   background: "#F9F7F2",
-  backgroundAlt: "#FAF8F2",
+  backgroundAlt: "#fafaf9ff",
   stroke: "rgba(220, 217, 208, 0.5)",
   textPrimary: "#113D5D",
   textSecondary: "#666666",
   textTertiary: "#F7F7F7",
+  textBackground: "#F9F7F2",
   textGreen: "#006255",
   textFooterAlt: "#B3BFC5",
 };
@@ -31,13 +32,14 @@ export const theme = createTheme({
 
     background: {
       default: BRAND.background,
-      paper: BRAND.backgroundAlt,
+      paper: BRAND.background,
     },
-
+    backgroundAlt: BRAND.backgroundAlt,
     text: {
       primary: BRAND.textPrimary,
       secondary: BRAND.textSecondary,
       tertiary: BRAND.textTertiary,
+      background: BRAND.textBackground,
       green: BRAND.textGreen,
       footerAlt: BRAND.textFooterAlt,
     },
@@ -61,6 +63,24 @@ export const theme = createTheme({
       fontSize: "48px",
       lineHeight: 1.25,
     },
+    h3: {
+      fontFamily: CINZEL,
+      fontWeight: "bold",
+      fontSize: "36px",
+      lineHeight: 1.25,
+    },
+    h4: {
+      fontFamily: CINZEL,
+      fontWeight: "bold",
+      fontSize: "24px",
+      lineHeight: 1.25,
+    },
+    h5: {
+      fontFamily: CINZEL,
+      fontWeight: "bold",
+      fontSize: "20px",
+      lineHeight: 1.25,
+    },
 
     // BODY / PARAGRAPHS (Lato Light 20)
     body1: {
@@ -75,6 +95,13 @@ export const theme = createTheme({
       fontFamily: LATO,
       fontWeight: 400,
       fontSize: "14px",
+      lineHeight: 1.55,
+    },
+
+    body3: {
+      fontFamily: LATO,
+      fontWeight: 300,
+      fontSize: "18px",
       lineHeight: 1.55,
     },
 
@@ -209,6 +236,42 @@ export const theme = createTheme({
           "&:hover": {
             borderColor: alpha(BRAND.primary, 0.45),
             backgroundColor: TOKENS.actionHover,
+          },
+        },
+        nav: {
+          color: BRAND.textPrimary,
+          textTransform: "uppercase",
+          fontWeight: "regular",
+          letterSpacing: 1.4,
+
+          transition: "color 180ms ease, transform 180ms ease, background-color 380ms ease",
+
+          "&:hover": {
+            backgroundColor: alpha(BRAND.primary, 0.05),
+            borderColor: alpha(BRAND.primary, 0.45),
+          },
+
+          "&.active": {
+            color: BRAND.textGreen,
+            fontWeight: 700,
+          },
+        },
+
+        hero: {
+          borderColor: alpha("#fff", 0.3),
+          borderWidth: 2,
+          borderStyle: "solid",
+          backgroundColor: alpha("#fff", 0.1),
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          fontSize: 14,
+          padding: "10px 24px",
+          color: BRAND.textTertiary,
+
+          "&:hover": {
+            backgroundColor: alpha("#fff", 0.35),
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
           },
         },
       },
