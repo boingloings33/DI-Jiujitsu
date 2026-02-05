@@ -63,7 +63,7 @@ export default function Home() {
             height: "120%", // slightly bigger for smooth parallax
             backgroundImage: `url(${heroBg})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "top",
             zIndex: -1,
           }}
         />
@@ -91,9 +91,13 @@ export default function Home() {
         component="section"
         id="mission"
         sx={{
-          py: {
+          pb: {
             xs: 8,
-            md: 24,
+            md: 16,
+          },
+          pt: {
+            xs: 8,
+            md: 8,
           },
           backgroundImage: `url(${bgMission})`,
           backgroundSize: "cover",
@@ -106,7 +110,7 @@ export default function Home() {
         <Box
           sx={{
             width: 2,
-            height: 84,
+            height: 70,
             mx: "auto",
             mb: 4,
             bgcolor: accentColor,
@@ -124,7 +128,7 @@ export default function Home() {
         </Container>
         <Box
           sx={{
-            width: 128,
+            width: 120,
             height: 2,
             mx: "auto",
             mt: 5,
@@ -169,11 +173,10 @@ export default function Home() {
         id="schedule"
         sx={{
           bgcolor: "primary.main",
-          py: { xs: 8, md: 24 },
+          py: { xs: 8, md: 9 },
           fontSize: 14,
           backgroundImage: `url(${bgSchedule})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
         display="flex"
         flexDirection="column"
@@ -211,12 +214,12 @@ export default function Home() {
                 py: 2,
               }}>
               <Typography variant="h5" sx={{ fontWeight: 300 }}>
-                Kids Training
+                Fundamentals
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ letterSpacing: 1.6, fontSize: 12 }}>
-                MON–THURS <br /> 4:00PM – 5:30PM
+                sx={{ letterSpacing: 1.6, fontSize: 10 }}>
+                MON–THURS <br /> 6:00PM – 7:30PM
               </Typography>
             </Box>
           </Box>
@@ -239,12 +242,12 @@ export default function Home() {
                 py: 2,
               }}>
               <Typography variant="h5" sx={{ fontWeight: 300 }}>
-                Fundamentals
+                Kids Training
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ letterSpacing: 1.6, fontSize: 12 }}>
-                MON–THURS 5:30PM – 7:00PM
+                sx={{ letterSpacing: 1.6, fontSize: 10 }}>
+                MON–THURS <br /> 4:00PM – 5:30PM
               </Typography>
             </Box>
           </Box>
@@ -258,7 +261,7 @@ export default function Home() {
       {/* 5) NOW OPEN */}
       <Box component="section" id="now-open" sx={{ py: { xs: 8, md: 14 } }}>
         <Container
-          maxWidth="sm"
+          maxWidth="md"
           sx={{
             textAlign: "center",
             display: "flex",

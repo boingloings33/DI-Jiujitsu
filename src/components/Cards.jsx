@@ -1,4 +1,11 @@
-import { Box, Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Link,
+} from "@mui/material";
 import img from "../assets/card-2.jpg";
 const cards = [
   {
@@ -26,7 +33,7 @@ const cards = [
 
 export default function PathsSection() {
   return (
-    <Box sx={{ py: 6 }}>
+    <Box sx={{ py: 2 }}>
       {/* Layout container (NO MUI Grid component) */}
       <Box
         sx={{
@@ -36,8 +43,7 @@ export default function PathsSection() {
             xs: "1fr",
             md: "repeat(3, minmax(0, 1fr))",
           },
-        }}
-      >
+        }}>
         {cards.map((card, i) => (
           <Card
             key={i}
@@ -69,15 +75,13 @@ export default function PathsSection() {
               "&:hover .cardCta": {
                 transform: "translateX(4px)",
               },
-            }}
-          >
+            }}>
             <CardMedia
               component="div"
               sx={{
-                height: 220,
+                height: 200,
                 overflow: "hidden",
-              }}
-            >
+              }}>
               <Box
                 className="cardMediaBg"
                 sx={{
@@ -99,8 +103,7 @@ export default function PathsSection() {
                 flexDirection: "column",
                 minWidth: 0,
                 backgroundColor: "backgroundAlt",
-              }}
-            >
+              }}>
               <Typography variant="h4" sx={{ mb: 1 }}>
                 {card.title}
               </Typography>
@@ -111,12 +114,14 @@ export default function PathsSection() {
                   mb: 2,
                   overflowWrap: "anywhere",
                   wordBreak: "break-word",
-                }}
-              >
+                }}>
                 {card.description}
               </Typography>
 
-              <Link href={card.href} underline="none" sx={{ mt: "auto", width: "fit-content" }}>
+              <Link
+                href={card.href}
+                underline="none"
+                sx={{ mt: "auto", width: "fit-content" }}>
                 <Typography
                   variant="subtitle2"
                   className="cardCta"
@@ -125,8 +130,7 @@ export default function PathsSection() {
                     alignItems: "center",
                     transition: "transform 220ms ease, color 220ms ease",
                     "&:hover": { textDecoration: "underline" },
-                  }}
-                >
+                  }}>
                   Explore Path&nbsp;›
                 </Typography>
               </Link>

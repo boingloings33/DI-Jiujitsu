@@ -30,16 +30,18 @@ export default function Section({
         justifyContent: "center",
         gap: { xs: 4, md: 6 },
 
-        mb: 12,
+        mb: 6,
       }}>
       {/* Image */}
       <Box
         sx={{
           flex: "1 1 60%",
-          height: 480,
+          minHeight: "27.5rem",
           backgroundImage: `url(${imageSrc})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+
+          // outline: "px solid rgba(120, 98, 72, 0.48)",
         }}
         role="img"
         aria-label={imageAlt}
@@ -88,7 +90,7 @@ export default function Section({
               mb: 1,
               color: "text.secondary",
               fontWeight: 400,
-              fontSize: 18,
+              fontSize: 14,
             }}>
             {paragraph}
           </Typography>
@@ -98,15 +100,9 @@ export default function Section({
           <List disablePadding>
             {list.map((item, index) => (
               <ListItem key={index} disableGutters alignItems="flex-start">
-                <ListItemIcon
-                  sx={{
-                    minWidth: 24,
-                    color: "success.main",
-                    mt: "4px",
-                  }}>
-                  <CheckIcon fontSize="small" />
-                </ListItemIcon>
-
+                <Typography mr={1} color="primary.main">
+                  •
+                </Typography>
                 <ListItemText
                   primary={item}
                   slotProps={{

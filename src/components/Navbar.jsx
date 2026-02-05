@@ -48,7 +48,7 @@ export default function Navbar() {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            px: { xs: 2, md: 4, lg: 4, xl: 14 },
+            px: { xs: 2, md: 4, lg: 10, xl: 14 },
           }}>
           {/* Logo */}
 
@@ -68,7 +68,10 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <Box
-            sx={{ display: { xs: "none", md: "flex" }, gap: { lg: 1, xl: 2 } }}>
+            sx={{
+              display: { xs: "none", md: "flex" },
+              gap: { lg: 0, xl: 2 },
+            }}>
             {pages.map((p) => (
               <Button
                 variant="nav"
@@ -76,13 +79,15 @@ export default function Navbar() {
                 component={NavLink}
                 to={p.path}
                 end={p.path === "/"}
-                sx={{}}>
+                sx={{ fontSize: 12 }}>
                 {p.label}
               </Button>
             ))}
 
             {/* Member Button */}
-            <Button variant="outlined">Members Login</Button>
+            <Button sx={{ marginLeft: 2 }} variant="outlined">
+              Members Login
+            </Button>
           </Box>
 
           {/* Mobile menu */}

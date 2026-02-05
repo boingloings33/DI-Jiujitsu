@@ -1,7 +1,8 @@
 // src/theme/theme.js
 import { createTheme, alpha } from "@mui/material/styles";
 const CINZEL = '"Cinzel", serif';
-const LATO = '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+const LATO =
+  '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
 const BRAND = {
   primary: "#113D5D",
   secondary: "#006255",
@@ -53,32 +54,32 @@ export const theme = createTheme({
     h1: {
       fontFamily: CINZEL,
       fontWeight: "bold",
-      fontSize: "72px",
+      fontSize: "64px",
       lineHeight: 1.25,
       color: BRAND.textTertiary,
     },
     h2: {
       fontFamily: CINZEL,
       fontWeight: "bold",
-      fontSize: "48px",
+      fontSize: "40px",
       lineHeight: 1.25,
     },
     h3: {
       fontFamily: CINZEL,
       fontWeight: "bold",
-      fontSize: "36px",
+      fontSize: "24px",
       lineHeight: 1.25,
     },
     h4: {
       fontFamily: CINZEL,
       fontWeight: "bold",
-      fontSize: "24px",
+      fontSize: "18px",
       lineHeight: 1.25,
     },
     h5: {
       fontFamily: CINZEL,
       fontWeight: "bold",
-      fontSize: "20px",
+      fontSize: "14px",
       lineHeight: 1.25,
     },
 
@@ -86,7 +87,7 @@ export const theme = createTheme({
     body1: {
       fontFamily: LATO,
       fontWeight: 300,
-      fontSize: "20px",
+      fontSize: "16px",
       lineHeight: 1.6,
     },
 
@@ -94,14 +95,14 @@ export const theme = createTheme({
     body2: {
       fontFamily: LATO,
       fontWeight: 400,
-      fontSize: "14px",
+      fontSize: "12px",
       lineHeight: 1.55,
     },
 
     body3: {
       fontFamily: LATO,
       fontWeight: 300,
-      fontSize: "18px",
+      fontSize: "12px",
       lineHeight: 1.55,
     },
 
@@ -109,7 +110,7 @@ export const theme = createTheme({
     subtitle1: {
       fontFamily: LATO,
       fontWeight: 400,
-      fontSize: "16px",
+      fontSize: "12px",
       lineHeight: 1.4,
       letterSpacing: "0.6px",
       textTransform: "uppercase",
@@ -119,7 +120,7 @@ export const theme = createTheme({
     subtitle2: {
       fontFamily: LATO,
       fontWeight: 700,
-      fontSize: "12px",
+      fontSize: "10px",
       lineHeight: 1.4,
       letterSpacing: "1px",
       textTransform: "uppercase",
@@ -136,7 +137,7 @@ export const theme = createTheme({
     navbarLink: {
       fontFamily: LATO,
       fontWeight: "regular",
-      fontSize: "14px",
+      fontSize: "12px",
       lineHeight: 20,
       letterSpacing: "1.4px",
     },
@@ -144,14 +145,14 @@ export const theme = createTheme({
     heroSubheader: {
       fontFamily: LATO,
       fontWeight: 300,
-      fontSize: "20px",
+      fontSize: "16px",
       lineHeight: 1.55,
     },
 
     cardLink: {
       fontFamily: LATO,
       fontWeight: 700,
-      fontSize: "12px",
+      fontSize: "10px",
       lineHeight: 1.4,
       letterSpacing: "0.6px",
       textTransform: "uppercase",
@@ -160,13 +161,13 @@ export const theme = createTheme({
     footerAlt: {
       fontFamily: LATO,
       fontWeight: 400,
-      fontSize: "12px",
+      fontSize: "10px",
       lineHeight: 1.4,
     },
     footerSubtitle: {
       fontFamily: CINZEL,
       fontWeight: 400,
-      fontSize: "18px",
+      fontSize: "14px",
       lineHeight: 1.4,
       letterSpacing: "1.8px",
       color: BRAND.textTertiary,
@@ -175,7 +176,7 @@ export const theme = createTheme({
     footerNav: {
       fontFamily: LATO,
       fontWeight: 400,
-      fontSize: "14px",
+      fontSize: "12px",
       lineHeight: 1.4,
       letterSpacing: "1.8px",
       color: BRAND.textTertiary,
@@ -244,7 +245,8 @@ export const theme = createTheme({
           fontWeight: "regular",
           letterSpacing: 1.4,
 
-          transition: "color 180ms ease, transform 180ms ease, background-color 380ms ease",
+          transition:
+            "color 180ms ease, transform 180ms ease, background-color 380ms ease",
 
           "&:hover": {
             backgroundColor: alpha(BRAND.primary, 0.05),
