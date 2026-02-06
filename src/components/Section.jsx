@@ -1,11 +1,4 @@
-import {
-  Box,
-  Typography,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Box, Typography, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 export default function Section({
   imageSrc,
@@ -30,8 +23,9 @@ export default function Section({
         justifyContent: "center",
         gap: { xs: 4, md: 6 },
 
-        mb: 6,
-      }}>
+        // mb: 6,
+      }}
+    >
       {/* Image */}
       <Box
         sx={{
@@ -54,7 +48,8 @@ export default function Section({
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-        }}>
+        }}
+      >
         {/* Pre-title */}
         {preTitle && (
           <Typography
@@ -63,7 +58,8 @@ export default function Section({
               letterSpacing: 1.6,
               fontWeight: 400,
               color: "text.secondary",
-            }}>
+            }}
+          >
             {preTitle}
           </Typography>
         )}
@@ -91,7 +87,8 @@ export default function Section({
               color: "text.secondary",
               fontWeight: 400,
               fontSize: 14,
-            }}>
+            }}
+          >
             {paragraph}
           </Typography>
         )}

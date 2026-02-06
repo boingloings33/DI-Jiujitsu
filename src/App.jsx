@@ -2,6 +2,7 @@ import { Toolbar, CssBaseline } from "@mui/material";
 
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Home2 from "./pages/Home2";
 import Programs from "./pages/Programs";
 import Membership from "./pages/Membership";
 import Schedule from "./pages/Schedule";
@@ -19,7 +20,7 @@ function App() {
       <Navbar />
       <Toolbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home2 />} />
         <Route path="/programs" element={<Programs />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/schedule" element={<Schedule />} />

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Link,
-} from "@mui/material";
+import { Box, Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
 import img from "../assets/card-2.jpg";
 const cards = [
   {
@@ -43,7 +36,8 @@ export default function PathsSection() {
             xs: "1fr",
             md: "repeat(3, minmax(0, 1fr))",
           },
-        }}>
+        }}
+      >
         {cards.map((card, i) => (
           <Card
             key={i}
@@ -54,34 +48,38 @@ export default function PathsSection() {
               display: "flex",
               flexDirection: "column",
               minWidth: 0,
+              border: "1px solid #DCD9D0", // stroke color
+              bgcolor: "#FCFBF9", // fill color
 
               // smooth baseline
               transition: "transform 220ms ease, box-shadow 220ms ease",
               boxShadow: 0,
 
               // hover effects
-              "&:hover": {
-                transform: "translateY(-6px)",
-                boxShadow: 6,
-                cursor: "pointer",
-              },
+              // "&:hover": {
+              //   transform: "translateY(-6px)",
+              //   boxShadow: 6,
+              //   cursor: "pointer",
+              // },
 
-              // image zoom on hover
-              "&:hover .cardMediaBg": {
-                transform: "scale(1.05)",
-              },
+              // // image zoom on hover
+              // "&:hover .cardMediaBg": {
+              //   transform: "scale(1.05)",
+              // },
 
-              // link/arrow nudge on hover
-              "&:hover .cardCta": {
-                transform: "translateX(4px)",
-              },
-            }}>
+              // // link/arrow nudge on hover
+              // "&:hover .cardCta": {
+              //   transform: "translateX(4px)",
+              // },
+            }}
+          >
             <CardMedia
               component="div"
               sx={{
                 height: 200,
                 overflow: "hidden",
-              }}>
+              }}
+            >
               <Box
                 className="cardMediaBg"
                 sx={{
@@ -103,7 +101,8 @@ export default function PathsSection() {
                 flexDirection: "column",
                 minWidth: 0,
                 backgroundColor: "backgroundAlt",
-              }}>
+              }}
+            >
               <Typography variant="h4" sx={{ mb: 1 }}>
                 {card.title}
               </Typography>
@@ -114,14 +113,12 @@ export default function PathsSection() {
                   mb: 2,
                   overflowWrap: "anywhere",
                   wordBreak: "break-word",
-                }}>
+                }}
+              >
                 {card.description}
               </Typography>
 
-              <Link
-                href={card.href}
-                underline="none"
-                sx={{ mt: "auto", width: "fit-content" }}>
+              <Link href={card.href} underline="none" sx={{ mt: "auto", width: "fit-content" }}>
                 <Typography
                   variant="subtitle2"
                   className="cardCta"
@@ -130,7 +127,8 @@ export default function PathsSection() {
                     alignItems: "center",
                     transition: "transform 220ms ease, color 220ms ease",
                     "&:hover": { textDecoration: "underline" },
-                  }}>
+                  }}
+                >
                   Explore Path&nbsp;›
                 </Typography>
               </Link>

@@ -17,15 +17,16 @@ export default function PricingCard({ title, subtitle, price, bullets }) {
     <Card
       sx={{
         border: "1px solid #DCD9D0", // stroke color
-        bgcolor: "#FCFBF9", // fill color
-        maxWidth: 300,
+        bgcolor: "#FCFBF9",
         mx: "auto",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         px: 3,
         py: 4,
         borderRadius: 0,
-      }}>
+      }}
+    >
       <CardContent sx={{ flexGrow: 1, p: 0 }}>
         {/* Title */}
         <Typography variant="h4" gutterBottom>

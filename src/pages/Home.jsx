@@ -51,7 +51,8 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-        }}>
+        }}
+      >
         {/* Background image */}
         <Box
           ref={heroBgRef}
@@ -75,9 +76,8 @@ export default function Home() {
           </Typography>
 
           <Typography variant="body1" sx={{ color: "text.tertiary", mb: 3 }}>
-            Welcome to Daniel Island Jiu Jitsu. A sanctuary for the study of
-            Brazilian Jiu Jitsu, rooted in tradition and forged in the modern
-            era.
+            Welcome to Daniel Island Jiu Jitsu. A sanctuary for the study of Brazilian Jiu Jitsu, rooted in
+            tradition and forged in the modern era.
           </Typography>
 
           <Button variant="hero" endIcon={<ArrowForwardIcon />}>
@@ -106,7 +106,8 @@ export default function Home() {
           justifyContent: "center",
           textAlign: "center",
           bgcolor: "backgroundAlt",
-        }}>
+        }}
+      >
         <Box
           sx={{
             width: 2,
@@ -121,9 +122,8 @@ export default function Home() {
             Our Mission
           </Typography>
           <Typography variant="body1">
-            At Daniel Island Jiu Jitsu, our mission is to empower individuals of
-            all ages to become their best selves by building character and
-            confidence through the transformative practice of martial arts.
+            At Daniel Island Jiu Jitsu, our mission is to empower individuals of all ages to become their best
+            selves by building character and confidence through the transformative practice of martial arts.
           </Typography>
         </Container>
         <Box
@@ -145,12 +145,10 @@ export default function Home() {
               display: "flex",
               alignItems: "flex-end",
               justifyContent: "space-between",
-            }}>
+            }}
+          >
             <Box>
-              <Typography
-                variant="subtitle2"
-                gutterBottom
-                color="text.secondary">
+              <Typography variant="subtitle2" gutterBottom color="text.secondary">
                 Our Curriculum
               </Typography>
               <Typography variant="h3" gutterBottom>
@@ -173,28 +171,25 @@ export default function Home() {
         id="schedule"
         sx={{
           bgcolor: "primary.main",
-          py: { xs: 8, md: 9 },
+          py: { xs: 8, xl: 12 },
           fontSize: 14,
           backgroundImage: `url(${bgSchedule})`,
           backgroundSize: "cover",
         }}
         display="flex"
         flexDirection="column"
-        gap={6}>
+        gap={3}
+      >
         <Container maxWidth="sm" sx={{ textAlign: "center" }}>
           <Typography variant="h2" gutterBottom color="text.background">
             Schedule & Routine
           </Typography>
-          <Typography variant="body3" color="text.footerAlt">
-            Consistency is the key to mastery. Our doors are open daily for
-            anyone ready to learn, grow, and have fun along the way.
+          <Typography variant="body1" color="text.footerAlt">
+            Consistency is the key to mastery. Our doors are open daily for anyone ready to learn, grow, and have
+            fun along the way.
           </Typography>
         </Container>
-        <Box
-          display={"flex"}
-          flexDirection={"row"}
-          gap={2}
-          justifyContent={"center"}>
+        <Box display={"flex"} flexDirection={"row"} gap={2} justifyContent={"center"}>
           <Box
             maxWidth={350}
             sx={{
@@ -202,7 +197,8 @@ export default function Home() {
               border: `1px solid ${alpha("#F9F7F2", 0.1)}`,
               display: "flex",
               alignItems: "center", // vertical centering
-            }}>
+            }}
+          >
             <Box
               sx={{
                 color: "text.background",
@@ -212,13 +208,12 @@ export default function Home() {
                 gap: 2,
                 px: 3,
                 py: 2,
-              }}>
+              }}
+            >
               <Typography variant="h5" sx={{ fontWeight: 300 }}>
                 Fundamentals
               </Typography>
-              <Typography
-                variant="body2"
-                sx={{ letterSpacing: 1.6, fontSize: 10 }}>
+              <Typography variant="body2" sx={{ letterSpacing: 1.6, fontSize: 10 }}>
                 MON–THURS <br /> 6:00PM – 7:30PM
               </Typography>
             </Box>
@@ -230,7 +225,8 @@ export default function Home() {
               border: `1px solid ${alpha("#F9F7F2", 0.1)}`,
               display: "flex",
               alignItems: "center", // vertical centering
-            }}>
+            }}
+          >
             <Box
               sx={{
                 color: "text.background",
@@ -240,22 +236,19 @@ export default function Home() {
                 gap: 2,
                 px: 3,
                 py: 2,
-              }}>
+              }}
+            >
               <Typography variant="h5" sx={{ fontWeight: 300 }}>
                 Kids Training
               </Typography>
-              <Typography
-                variant="body2"
-                sx={{ letterSpacing: 1.6, fontSize: 10 }}>
+              <Typography variant="body2" sx={{ letterSpacing: 1.6, fontSize: 10 }}>
                 MON–THURS <br /> 4:00PM – 5:30PM
               </Typography>
             </Box>
           </Box>
         </Box>
 
-        <AnimatedTextLink href="/schedule">
-          View Full Class Schedule →
-        </AnimatedTextLink>
+        <AnimatedTextLink href="/schedule">View Full Class Schedule →</AnimatedTextLink>
       </Box>
 
       {/* 5) NOW OPEN */}
@@ -268,19 +261,17 @@ export default function Home() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-          }}>
+          }}
+        >
           <Typography variant="h2" gutterBottom color="primary.main">
             Daniel Island Jiu Jitsu is Now Open
           </Typography>
           <Typography variant="body1" sx={{ mb: 3 }}>
-            Take the first step. Drop in, watch a class, meet our instructors,
-            and experience the dojo for yourself!
+            Take the first step. Drop in, watch a class, meet our instructors, and experience the dojo for
+            yourself!
           </Typography>
-          <Button
-            href="/membership"
-            variant="outlined"
-            sx={{ paddingY: 2, paddingX: 8 }}>
-            View Membership
+          <Button href="/contact" variant="outlined" sx={{ paddingY: 2, paddingX: 8 }}>
+            Get in Touch
           </Button>
         </Container>
       </Box>

@@ -9,51 +9,46 @@ export default function Programs() {
   return (
     <Box
       sx={{
+        py: 8,
+        px: { md: 10 },
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundImage: `url(${bgPrograms})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
-        "@media (min-width:1460px)": {
-          backgroundSize: "contain",
-        },
-      }}>
+        backgroundSize: "cover",
+      }}
+    >
       {/* Header */}
-      <Box
-        component="section"
-        id="now-open"
-        sx={{
-          py: {
-            xs: 6,
-            md: 7,
-            lg: 10,
-          },
-          mb: 6,
-          backgroundColor: "#cdc1b417",
-        }}>
-        <Container
-          maxWidth="sm"
-          sx={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}>
-          <Typography variant="h2" gutterBottom color="primary.main">
-            Training Programs
-          </Typography>
 
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 3,
-              color: "text.secondary",
-              lineHeight: 1.6,
-              maxWidth: 520,
-            }}>
-            The journey of a thousand miles begins with a single step. Choose
-            the path that aligns with your goals.
-          </Typography>
-        </Container>
-      </Box>
+      <Container
+        maxWidth="sm"
+        sx={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h2" gutterBottom color="primary.main">
+          Training Programs
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{
+            mb: 3,
+            color: "text.secondary",
+            lineHeight: 1.6,
+            maxWidth: 520,
+          }}
+        >
+          The journey of a thousand miles begins with a single step. Choose the path that aligns with your goals.
+        </Typography>
+      </Container>
 
       {/* Content */}
       <Container
@@ -64,7 +59,9 @@ export default function Programs() {
             md: 10,
             lg: 18,
           },
-        }}>
+          pb: 6,
+        }}
+      >
         <Section
           imageSrc={imgWsd}
           preTitle="Discipline. Respect. Confidence."
