@@ -16,8 +16,7 @@ export default function Membership() {
         backgroundImage: `url(${bgMembership})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-      }}
-    >
+      }}>
       <Box sx={{ maxWidth: "600px" }}>
         <Typography variant="h2" gutterBottom color="primary.main">
           Student Plans
@@ -30,10 +29,10 @@ export default function Membership() {
             textTransform: "none",
             lineHeight: 1.6,
             letterSpacing: 0.5,
-          }}
-        >
-          Membership at Daniel Island Jiu Jitsu is a commitment to your own growth. We offer straightforward
-          options with no hidden fees or long-term binding contracts.
+          }}>
+          Membership at Daniel Island Jiu Jitsu is a commitment to your own
+          growth. We offer straightforward options with no hidden fees or
+          long-term binding contracts.
         </Typography>
       </Box>
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} gap={3}>

@@ -17,14 +17,12 @@ export default function ScheduleTable() {
       sx={{
         border: "1px solid #DCD9D0",
         borderRadius: 0,
-      }}
-    >
+      }}>
       <Table
         sx={{
           tableLayout: "fixed",
           width: "100%",
-        }}
-      >
+        }}>
         <TableHead>
           <TableRow>
             <TableCell sx={headerCell}>
@@ -145,7 +143,7 @@ const timeCell = {
   whiteSpace: "nowrap",
   textAlign: "center",
   color: "text.secondary",
-  fontSize: "14px",
+  fontSize: { lg: 10, xl: 12 },
   py: 2,
 };
 

@@ -20,8 +20,7 @@ export default function Programs() {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
         backgroundSize: "cover",
-      }}
-    >
+      }}>
       {/* Header */}
 
       <Container
@@ -31,8 +30,7 @@ export default function Programs() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-        }}
-      >
+        }}>
         <Typography variant="h2" gutterBottom color="primary.main">
           Training Programs
         </Typography>
@@ -40,28 +38,29 @@ export default function Programs() {
         <Typography
           variant="body1"
           sx={{
-            mb: 3,
+            mb: 8,
             color: "text.secondary",
             lineHeight: 1.6,
             maxWidth: 520,
-          }}
-        >
-          The journey of a thousand miles begins with a single step. Choose the path that aligns with your goals.
+          }}>
+          The journey of a thousand miles begins with a single step. Choose the
+          path that aligns with your goals.
         </Typography>
       </Container>
 
       {/* Content */}
       <Container
-        maxWidth="lg"
+        maxWidth={{ md: "lg", xl: "xl" }}
         sx={{
           px: {
             xs: 2,
             md: 10,
             lg: 18,
           },
-          pb: 6,
-        }}
-      >
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}>
         <Section
           imageSrc={imgWsd}
           preTitle="Discipline. Respect. Confidence."
