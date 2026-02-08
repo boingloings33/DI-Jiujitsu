@@ -35,25 +35,22 @@ export default function ScheduleTable() {
               <Typography variant="h4">Time</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Mon</Typography>
+              <Typography variant="h5">Mon (No - Gi)</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Tue</Typography>
+              <Typography variant="h5">Tue (Gi)</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Wed</Typography>
+              <Typography variant="h5">Wed (No - Gi)</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Thu</Typography>
+              <Typography variant="h5">Thu (Gi)</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Fri</Typography>
+              <Typography variant="h5">Fri (Gi)</Typography>
             </TableCell>
             <TableCell sx={headerCell}>
-              <Typography variant="h4">Sat</Typography>
-            </TableCell>
-            <TableCell sx={headerCell}>
-              <Typography variant="h4">Sun</Typography>
+              <Typography variant="h5">Sat</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -63,26 +60,44 @@ export default function ScheduleTable() {
           <TableRow>
             <TableCell sx={timeCell}>7:00 AM - 8:15 AM</TableCell>
             <TableCell sx={bodyCell}>
-              <ScheduleButton variant="kids" />
+              <ScheduleButton variant="advanced" />
             </TableCell>
+            <TableCell sx={bodyCell}></TableCell>
+            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell}>
               <ScheduleButton variant="advanced" />
             </TableCell>
+            <TableCell sx={bodyCell}></TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell sx={timeCell}>10:00 AM - 12:00 PM</TableCell>
+            <TableCell sx={bodyCell}></TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" text="Member Open Training" />
+            </TableCell>
           </TableRow>
 
           {/* Row 2 */}
           <TableRow>
             <TableCell sx={timeCell}>12:00 PM - 1:00 PM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>
@@ -90,11 +105,18 @@ export default function ScheduleTable() {
           {/* Row 3 */}
           <TableRow>
             <TableCell sx={timeCell}>4:00 PM - 4:45 PM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids" />
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>
@@ -102,11 +124,18 @@ export default function ScheduleTable() {
           {/* Row 4 */}
           <TableRow>
             <TableCell sx={timeCell}>4:45 PM - 5:30 PM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids2" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids2" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids2" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids2" />
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>
@@ -114,11 +143,18 @@ export default function ScheduleTable() {
           {/* Row 5 */}
           <TableRow>
             <TableCell sx={timeCell}>5:45 PM - 6:45 PM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="fundamentals" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="fundamentals" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="fundamentals" text="Parent/Child" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="fundamentals" text="Women's Self Defense" />
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>
@@ -126,11 +162,18 @@ export default function ScheduleTable() {
           {/* Row 6 */}
           <TableRow>
             <TableCell sx={timeCell}>6:45 PM - 8:00 PM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>{" "}
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>{" "}
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>{" "}
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>

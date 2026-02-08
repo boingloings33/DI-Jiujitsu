@@ -1,22 +1,22 @@
 import { Button, Typography } from "@mui/material";
 import ShimmerOverlay from "./ShimmerOverlay.jsx";
 const VARIANTS = {
-  allLevels: {
-    defaultText: "BJJ All Levels",
-    bg: "#F0EFED",
-    border: "#DBDBD9",
-    color: "text.primary",
+  kids2: {
+    defaultText: "Kids (10-12)",
+    bg: "#8ba388ff",
+    border: "secondary.main",
+    color: "text.background",
   },
 
   advanced: {
-    defaultText: "Advanced",
+    defaultText: "Adults & Teens",
     bg: "primary.main",
     border: "#C9D3E0", // light greyish blue
     color: "text.background",
   },
 
   kids: {
-    defaultText: "Kids (5-8)",
+    defaultText: "Kids (6-9)",
     bg: "#D6D2C4",
     border: "#C4C0B4",
     color: "text.primary",
@@ -24,8 +24,8 @@ const VARIANTS = {
 
   fundamentals: {
     defaultText: "Fundamentals",
-    bg: "backgroundAlt",
-    border: "#C4C0B4",
+    bg: "#a7a7b65d",
+    border: "text.primary",
     color: "text.primary",
   },
 };
