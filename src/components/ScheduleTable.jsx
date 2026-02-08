@@ -7,7 +7,11 @@ import {
   TableRow,
   Paper,
   Typography,
+  Box,
+  Button,
 } from "@mui/material";
+
+import ScheduleButton from "../components/ScheduleButton.jsx";
 
 export default function ScheduleTable() {
   return (
@@ -17,12 +21,14 @@ export default function ScheduleTable() {
       sx={{
         border: "1px solid #DCD9D0",
         borderRadius: 0,
-      }}>
+      }}
+    >
       <Table
         sx={{
           tableLayout: "fixed",
           width: "100%",
-        }}>
+        }}
+      >
         <TableHead>
           <TableRow>
             <TableCell sx={headerCell}>
@@ -56,8 +62,12 @@ export default function ScheduleTable() {
           {/* Row 1 */}
           <TableRow>
             <TableCell sx={timeCell}>7:00 AM - 8:15 AM</TableCell>
-            <TableCell sx={bodyCell} />
-            <TableCell sx={bodyCell} />
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="kids" />
+            </TableCell>
+            <TableCell sx={bodyCell}>
+              <ScheduleButton variant="advanced" />
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
@@ -143,7 +153,7 @@ const timeCell = {
   whiteSpace: "nowrap",
   textAlign: "center",
   color: "text.secondary",
-  fontSize: { lg: 10, xl: 12 },
+  fontSize: { xs: 10, xl: 12 },
   py: 2,
 };
 
@@ -151,5 +161,5 @@ const bodyCell = {
   backgroundColor: "#FBFAF7",
   border: "1px solid #DCD9D0",
   height: 56,
-  paddingTop: 7,
+  padding: 1,
 };

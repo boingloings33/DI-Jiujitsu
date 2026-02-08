@@ -9,14 +9,18 @@ import {
   Checkbox,
   Button,
   Grid,
+  Skeleton,
 } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import React from "react";
 
 export default function Contact() {
+  const [mapLoaded, setMapLoaded] = React.useState(false);
+
   return (
     <Container
       maxWidth="md"
@@ -79,20 +83,40 @@ export default function Contact() {
                 126 Seven Farms Drive, Suite 270 Daniel Island, SC 29492
               </Typography>
             </Box>
-            <Box sx={{ width: "100%", flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1, position: "relative", minHeight: 220 }}>
+              {/* Skeleton */}
+              {!mapLoaded && (
+                <Skeleton
+                  variant="rectangular"
+                  animation="pulse"
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: 1,
+                    minHeight: 280,
+                    backgroundColor: "rgba(220, 217, 208, 0.35)",
+                    animationDuration: "0.5s",
+                  }}
+                />
+              )}
+
+              {/* Google Map */}
               <Box
                 component="iframe"
                 title="Daniel Island Jiu Jitsu Location"
                 src="https://www.google.com/maps?q=126%20Seven%20Farms%20Drive%2C%20Suite%20270%20Daniel%20Island%2C%20SC%2029492&output=embed"
-                sx={{
-                  border: 0,
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 1,
-                  minHeight: 280,
-                }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                onLoad={() => setMapLoaded(true)}
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  border: 0,
+                  borderRadius: 1,
+                  opacity: mapLoaded ? 1 : 0,
+                  transition: "opacity 300ms ease",
+                  minHeight: 280,
+                }}
               />
             </Box>
           </Box>
