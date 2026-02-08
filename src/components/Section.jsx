@@ -48,6 +48,7 @@ export default function Section({
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: "flex-start",
         }}
       >
         {/* Pre-title */}
@@ -87,6 +88,7 @@ export default function Section({
               color: "text.secondary",
               fontWeight: 400,
               fontSize: 14,
+              textAlign: "left",
             }}
           >
             {paragraph}

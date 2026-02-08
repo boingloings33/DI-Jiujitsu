@@ -1,5 +1,4 @@
 import { Toolbar, CssBaseline } from "@mui/material";
-
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
@@ -11,7 +10,13 @@ import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer";
+import ScrollCleanup from "./utils/ScrollCleanup.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   return (
@@ -29,10 +34,8 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-
       <Footer />
     </>
   );
 }
-
 export default App;

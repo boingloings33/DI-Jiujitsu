@@ -1,13 +1,12 @@
 // src/theme/theme.js
 import { createTheme, alpha } from "@mui/material/styles";
 const CINZEL = '"Cinzel", serif';
-const LATO =
-  '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+const LATO = '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
 const BRAND = {
   primary: "#113D5D",
   secondary: "#006255",
   background: "#F9F7F2",
-  backgroundAlt: "#fafaf9ff",
+  backgroundAlt: "#FCFBF9",
   stroke: "rgba(220, 217, 208, 0.5)",
   textPrimary: "#113D5D",
   textSecondary: "#666666",
@@ -245,8 +244,7 @@ export const theme = createTheme({
           fontWeight: "regular",
           letterSpacing: 1.4,
 
-          transition:
-            "color 180ms ease, transform 180ms ease, background-color 380ms ease",
+          transition: "color 180ms ease, transform 180ms ease, background-color 380ms ease",
 
           "&:hover": {
             backgroundColor: alpha(BRAND.primary, 0.05),

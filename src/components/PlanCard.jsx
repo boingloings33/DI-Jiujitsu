@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
-export default function PricingCard({ title, subtitle, price, bullets }) {
+export default function PricingCard({ title, subtitle, price, time, bullets }) {
   return (
     <Card
       sx={{
@@ -44,7 +44,7 @@ export default function PricingCard({ title, subtitle, price, bullets }) {
             ${price}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ ml: 0.5 }}>
-            / month
+            / {time}
           </Typography>
         </Box>
 
