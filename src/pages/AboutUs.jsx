@@ -93,7 +93,7 @@ export default function AboutUs() {
         At Daniel Island Jiu Jitsu, respect, safety, and a strong team culture are at the core of everything we do.
         Please take a moment to review our key guidelines:
       </Typography>
-      <Box sx={{ textAlign: "left", width: "100%" }}>
+      <Box sx={{ textAlign: "left", width: "100%", boxShadow: "0 1px 3px rgba(0, 0, 0, 0.10)" }}>
         <Accordion>
           <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
             Hygiene & Cleanliness

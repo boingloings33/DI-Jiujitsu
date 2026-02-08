@@ -8,6 +8,7 @@ const BRAND = {
   background: "#F9F7F2",
   backgroundAlt: "#FCFBF9",
   stroke: "rgba(220, 217, 208, 0.5)",
+  strokeAlt: "#DCD9D0",
   textPrimary: "#113D5D",
   textSecondary: "#666666",
   textTertiary: "#F7F7F7",
@@ -194,12 +195,109 @@ export const theme = createTheme({
         },
       },
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          position: "relative",
+          backgroundColor: BRAND.backgroundAlt,
+          boxShadow: "none",
+          border: "none",
+          borderRadius: 0,
+
+          "&.Mui-expanded": {
+            margin: 0,
+          },
+
+          "&.MuiPaper-root": {
+            border: "none",
+            borderRadius: 0,
+          },
+
+          "&:first-of-type": {
+            borderTop: `1px solid ${BRAND.strokeAlt}`,
+            borderLeft: `1px solid ${BRAND.strokeAlt}`,
+            borderRight: `1px solid ${BRAND.strokeAlt}`,
+          },
+
+          "&:not(:first-of-type):not(:last-of-type)": {
+            borderLeft: `1px solid ${BRAND.strokeAlt}`,
+            borderRight: `1px solid ${BRAND.strokeAlt}`,
+          },
+
+          "&:last-of-type": {
+            borderBottom: `1px solid ${BRAND.strokeAlt}`,
+            borderLeft: `1px solid ${BRAND.strokeAlt}`,
+            borderRight: `1px solid ${BRAND.strokeAlt}`,
+          },
+
+          "&:not(:first-of-type)::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 16,
+            right: 16,
+            borderTop: `1px solid ${BRAND.strokeAlt}`,
+            pointerEvents: "none",
+          },
+        },
+      },
+    },
+
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          minHeight: 56,
+          paddingInline: 16,
+          borderRadius: 0,
+
+          "&.Mui-expanded": {
+            minHeight: 56,
+          },
+        },
+
+        content: {
+          margin: 0,
+          fontFamily: CINZEL,
+          fontSize: "18px",
+          color: "#474747",
+
+          "&.Mui-expanded": {
+            margin: 0,
+          },
+        },
+
+        expandIconWrapper: {
+          color: "#474747",
+        },
+      },
+    },
+
+    MuiAccordionSummaryContent: {
+      styleOverrides: {
+        root: {
+          fontFamily: CINZEL,
+          fontSize: "18px",
+          color: "#474747",
+        },
+      },
+    },
+
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          padding: "16px",
+          backgroundColor: BRAND.backgroundAlt,
+          color: "#474747",
+        },
+      },
+    },
 
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundImage: "none",
           border: `1px solid ${TOKENS.divider}`,
+          borderRadius: 0,
         },
       },
     },

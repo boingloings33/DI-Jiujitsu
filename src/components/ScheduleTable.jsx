@@ -19,7 +19,6 @@ export default function ScheduleTable() {
       component={Paper}
       elevation={0}
       sx={{
-        border: "1px solid #DCD9D0",
         borderRadius: 0,
       }}
     >
