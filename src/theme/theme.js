@@ -211,6 +211,7 @@ export const theme = createTheme({
           "&.MuiPaper-root": {
             border: "none",
             borderRadius: 0,
+            borderTop: `1px solid ${BRAND.strokeAlt}`,
           },
 
           "&:first-of-type": {
@@ -228,16 +229,6 @@ export const theme = createTheme({
             borderBottom: `1px solid ${BRAND.strokeAlt}`,
             borderLeft: `1px solid ${BRAND.strokeAlt}`,
             borderRight: `1px solid ${BRAND.strokeAlt}`,
-          },
-
-          "&:not(:first-of-type)::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 16,
-            right: 16,
-            borderTop: `1px solid ${BRAND.strokeAlt}`,
-            pointerEvents: "none",
           },
         },
       },
