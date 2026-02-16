@@ -16,7 +16,6 @@ export default function Programs() {
       }}
     >
       <Container
-        maxWidth="md"
         sx={{
           py: 8,
           textAlign: "center",

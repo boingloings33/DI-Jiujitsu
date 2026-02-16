@@ -353,7 +353,7 @@ export default function Home() {
             <AnimatedTextLink
               sx={{
                 color: "text.primary",
-                fontSize: { md: "1rem", xl: "1.1rem" },
+                fontSize: { xs: "1rem", xl: "1.1rem" },
               }}
               href="/programs"
             >
@@ -579,7 +579,7 @@ export default function Home() {
           <AnimatedTextLink
             href="/schedule"
             sx={{
-              fontSize: { md: "1rem", xl: "1.1rem" },
+              fontSize: { xs: "1rem", xl: "1.1rem" },
             }}
           >
             View Full Class Schedule →

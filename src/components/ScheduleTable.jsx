@@ -24,7 +24,7 @@ export default function ScheduleTable() {
     >
       <Table
         sx={{
-          tableLayout: "fixed",
+          tableLayout: { md: "fixed" },
           width: "100%",
         }}
       >
@@ -78,7 +78,7 @@ export default function ScheduleTable() {
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell}>
-              <ScheduleButton variant="advanced" text="Member Open Training" />
+              <ScheduleButton variant="advanced" text="Members Open" />
             </TableCell>
           </TableRow>
 
@@ -152,7 +152,7 @@ export default function ScheduleTable() {
               <ScheduleButton variant="fundamentals" text="Parent/Child" />
             </TableCell>
             <TableCell sx={bodyCell}>
-              <ScheduleButton variant="fundamentals" text="Women's Self Defense" />
+              <ScheduleButton variant="fundamentals" text="Women's Defense" />
             </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
@@ -166,13 +166,13 @@ export default function ScheduleTable() {
             </TableCell>
             <TableCell sx={bodyCell}>
               <ScheduleButton variant="advanced" />
-            </TableCell>{" "}
+            </TableCell>
             <TableCell sx={bodyCell}>
               <ScheduleButton variant="advanced" />
-            </TableCell>{" "}
+            </TableCell>
             <TableCell sx={bodyCell}>
               <ScheduleButton variant="advanced" />
-            </TableCell>{" "}
+            </TableCell>
             <TableCell sx={bodyCell} />
             <TableCell sx={bodyCell} />
           </TableRow>

@@ -78,9 +78,9 @@ const CoachCarousel = ({ slides, options }) => {
           sx={{
             display: "flex",
             touchAction: "pan-y pinch-zoom",
-            marginLeft: { xs: "-1rem", md: "-1.5rem" },
+            marginLeft: { xs: 0, md: "-1.5rem" },
             height: {
-              xs: 420,
+              xs: "auto",
               md: 460,
               lg: 520,
             },
@@ -93,6 +93,7 @@ const CoachCarousel = ({ slides, options }) => {
               sx={{
                 flex: "0 0 100%",
                 minWidth: 0,
+                paddingLeft: { xs: 0, md: "1.5rem" },
               }}
             >
               <Box
@@ -106,15 +107,16 @@ const CoachCarousel = ({ slides, options }) => {
                 {/* Image column */}
                 <Box
                   sx={{
-                    flex: "0 0 40%",
-                    maxWidth: 320,
+                    flex: { xs: "none", md: "0 0 40%" },
+                    maxWidth: { xs: "100%", md: 320 },
+                    width: { xs: "100%", md: "auto" },
                   }}
                 >
                   <Box
                     sx={{
                       position: "relative",
                       width: "100%",
-                      aspectRatio: "2 / 4",
+                      aspectRatio: { xs: "16 / 9", md: "2 / 4" },
                       overflow: "hidden",
                     }}
                   >
@@ -126,6 +128,7 @@ const CoachCarousel = ({ slides, options }) => {
                         height: "100%",
                         width: "100%",
                         objectFit: "cover",
+                        objectPosition: { xs: "50% 20%", md: "center center" },
                       }}
                     />
                   </Box>
@@ -137,7 +140,7 @@ const CoachCarousel = ({ slides, options }) => {
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
+                    justifyContent: { xs: "flex-start", md: "center" },
                     py: { xs: 2, md: 4 },
                     textAlign: "left",
                   }}
@@ -199,7 +202,6 @@ const CoachCarousel = ({ slides, options }) => {
             gap: "0.6rem",
             alignItems: "center",
           }}
-          CoachCarousel
         >
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />

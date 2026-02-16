@@ -4,7 +4,6 @@ import AddIcon from "@mui/icons-material/Add";
 export default function Faq() {
   return (
     <Container
-      maxWidth="md"
       sx={{
         py: 8,
       }}

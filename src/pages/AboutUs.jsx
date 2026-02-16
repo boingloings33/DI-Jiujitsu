@@ -6,7 +6,7 @@ import coachJosh from "../assets/coaches/headshot-Josh-Small.jpg";
 import coachEmmy from "../assets/coaches/headshot-Emmy-Small.jpg";
 import coachTravis from "../assets/coaches/headshot-Travis-small.webp";
 import AddIcon from "@mui/icons-material/Add";
-
+import bgPrograms from "../assets/Group 3.svg";
 export default function AboutUs() {
   const carouselSlides = [
     {
@@ -38,20 +38,54 @@ export default function AboutUs() {
     align: "start",
   };
   return (
-    <Container
-      maxWidth="md"
+    <Box
       sx={{
-        py: 8,
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundImage: `url(${bgPrograms})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
       }}
     >
-      {/* <Box>
+      <Container
+        sx={{
+          py: 8,
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {/* <Box>
+          <Typography variant="h2" gutterBottom color="primary.main">
+            About Us
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 3,
+              color: "text.secondary",
+              textTransform: "none",
+              lineHeight: 1.6,
+              letterSpacing: 0.5,
+              maxWidth: "md",
+            }}
+          >
+            At Daniel Island Jiu Jitsu, we believe Jiu Jitsu is more than just learning submissions and
+            techniques—it’s a way of life. The discipline, resilience, and respect developed on the mat extend into
+            everyday life. Our mission is to help students of all ages grow in confidence and character through this
+            powerful and transformative martial art.
+          </Typography>
+        </Box>
+        <Divider sx={{ my: 4, width: "100%" }} /> */}
         <Typography variant="h2" gutterBottom color="primary.main">
-          About Us
+          Meet Our Coaches
+        </Typography>
+        <Divider sx={{ width: "100%", mb: 4 }} />
+        <CoachCarousel slides={carouselSlides} options={options} />
+        <Divider sx={{ width: "100%", my: 4 }} />
+        <Typography variant="h2" gutterBottom color="primary.main">
+          Gym Rules & Etiquette
         </Typography>
         <Typography
           variant="body1"
@@ -61,103 +95,77 @@ export default function AboutUs() {
             textTransform: "none",
             lineHeight: 1.6,
             letterSpacing: 0.5,
-            maxWidth: "md",
           }}
         >
-          At Daniel Island Jiu Jitsu, we believe Jiu Jitsu is more than just learning submissions and
-          techniques—it’s a way of life. The discipline, resilience, and respect developed on the mat extend into
-          everyday life. Our mission is to help students of all ages grow in confidence and character through this
-          powerful and transformative martial art.
+          At Daniel Island Jiu Jitsu, respect, safety, and a strong team culture are at the core of everything we
+          do. Please take a moment to review our key guidelines:
         </Typography>
-      </Box>
-      <Divider sx={{ my: 4, width: "100%" }} /> */}
-      <Typography variant="h2" gutterBottom color="primary.main">
-        Meet Our Coaches
-      </Typography>
-      <Divider sx={{ width: "100%", mb: 4 }} />
-      <CoachCarousel slides={carouselSlides} options={options} />
-      <Divider sx={{ width: "100%", my: 4 }} />
-      <Typography variant="h2" gutterBottom color="primary.main">
-        Gym Rules & Etiquette
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          mb: 3,
-          color: "text.secondary",
-          textTransform: "none",
-          lineHeight: 1.6,
-          letterSpacing: 0.5,
-        }}
-      >
-        At Daniel Island Jiu Jitsu, respect, safety, and a strong team culture are at the core of everything we do.
-        Please take a moment to review our key guidelines:
-      </Typography>
-      <Box sx={{ textAlign: "left", width: "100%", boxShadow: "0 1px 3px rgba(0, 0, 0, 0.10)" }}>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Hygiene & Cleanliness
-          </AccordionSummary>
-          <AccordionDetails>
-            - Always wear a clean gi and shower before class. <br />
-            - Keep nails trimmed and hair tied back. Stay home if you’re feeling sick.
-            <br /> - Change clothes in the restrooms, not in open areas.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Equipment
-          </AccordionSummary>
-          <AccordionDetails>
-            - Consult with your instructor if you're unsure about what gear to purchase.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Safety & Respect
-          </AccordionSummary>
-          <AccordionDetails>
-            - Train with control. Tap early and give your partner time to tap. <br />
-            - Be aware of your surroundings, avoid collisions, and stay on the mat. <br />
-            - Apologize if you accidentally hurt someone. <br />- Train slowly and methodically; always take care
-            of your training partner.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Mat Etiquette
-          </AccordionSummary>
-          <AccordionDetails>
-            - No shoes on the mats. Wear flip-flops or slides off the mat and in the restroom. <br />
-            - Pay attention during instruction. Don’t interrupt or talk over the coach.
-            <br />
-            - Drill the technique shown—repetition is how you learn. <br />- Use respectful language as this is a
-            family-friendly environment.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Attitude & Culture
-          </AccordionSummary>
-          <AccordionDetails>
-            - Be welcoming to new students. <br />
-            - No bragging or celebrating submissions—stay humble.
-            <br />
-            - Clean up after yourself. <br />
-            - Help others learn (if you’re qualified), and ask questions with curiosity. <br />- Work hard, be
-            consistent, and have fun!
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
-            Time & Focus
-          </AccordionSummary>
-          <AccordionDetails>
-            - Arrive on time. If you’re late, check with your instructor before jumping in. <br />- If you must
-            keep your phone nearby, only check it during breaks.
-          </AccordionDetails>
-        </Accordion>
-      </Box>
-    </Container>
+        <Box sx={{ textAlign: "left", width: "100%", boxShadow: "0 1px 3px rgba(0, 0, 0, 0.10)" }}>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Hygiene & Cleanliness
+            </AccordionSummary>
+            <AccordionDetails>
+              - Always wear a clean gi and shower before class. <br />
+              - Keep nails trimmed and hair tied back. Stay home if you’re feeling sick.
+              <br /> - Change clothes in the restrooms, not in open areas.
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Equipment
+            </AccordionSummary>
+            <AccordionDetails>
+              - Consult with your instructor if you're unsure about what gear to purchase.
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Safety & Respect
+            </AccordionSummary>
+            <AccordionDetails>
+              - Train with control. Tap early and give your partner time to tap. <br />
+              - Be aware of your surroundings, avoid collisions, and stay on the mat. <br />
+              - Apologize if you accidentally hurt someone. <br />- Train slowly and methodically; always take care
+              of your training partner.
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Mat Etiquette
+            </AccordionSummary>
+            <AccordionDetails>
+              - No shoes on the mats. Wear flip-flops or slides off the mat and in the restroom. <br />
+              - Pay attention during instruction. Don’t interrupt or talk over the coach.
+              <br />
+              - Drill the technique shown—repetition is how you learn. <br />- Use respectful language as this is a
+              family-friendly environment.
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Attitude & Culture
+            </AccordionSummary>
+            <AccordionDetails>
+              - Be welcoming to new students. <br />
+              - No bragging or celebrating submissions—stay humble.
+              <br />
+              - Clean up after yourself. <br />
+              - Help others learn (if you’re qualified), and ask questions with curiosity. <br />- Work hard, be
+              consistent, and have fun!
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<AddIcon />} aria-controls="panel1-content" id="panel1-header">
+              Time & Focus
+            </AccordionSummary>
+            <AccordionDetails>
+              - Arrive on time. If you’re late, check with your instructor before jumping in. <br />- If you must
+              keep your phone nearby, only check it during breaks.
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+      </Container>
+    </Box>
   );
 }

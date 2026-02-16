@@ -41,7 +41,7 @@ export default function ScheduleButton({ variant = "fundamentals", text }) {
       sx={{
         width: "100%",
         height: "100%",
-        padding: 0,
+        px: 1,
         borderRadius: 0.2,
         backgroundColor: config.bg,
         borderColor: config.border,
@@ -58,7 +58,9 @@ export default function ScheduleButton({ variant = "fundamentals", text }) {
       }}
     >
       <ShimmerOverlay>
-        <Typography variant="body2">{label}</Typography>
+        <Typography variant="body2" sx={{ fontSize: { xs: 10, xl: 12 } }}>
+          {label}
+        </Typography>
       </ShimmerOverlay>
     </Button>
   );

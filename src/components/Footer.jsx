@@ -30,10 +30,10 @@ export default function Footer() {
         py: 6,
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={4} justifyContent="space-between" alignItems="flex-start">
+      <Container>
+        <Grid container spacing={8} justifyContent="space-between" alignItems="flex-start">
           {/* Column 1 — Logo + blurb */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={6} display="flex">
             <Box sx={{ mb: 2 }}>
               <Box component="img" src={logo} alt="Logo" sx={{ height: 40, mb: 2 }} />
 
@@ -42,21 +42,20 @@ export default function Footer() {
                 Jitsu and the cultivation of the human spirit.
               </Typography>
             </Box>
-          </Grid>
 
-          {/* Column 2 — Explore */}
-          <Grid item md={3} sx={{ display: { xs: "none", md: "block" } }}>
-            <Typography variant="footerSubtitle" gutterBottom>
-              Explore
-            </Typography>
+            {/* Column 2 — Explore */}
+
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 gap: 1,
-                marginTop: 3,
+                alignItems: "flex-start",
               }}
             >
+              <Typography variant="footerSubtitle" gutterBottom>
+                Explore
+              </Typography>
               {pages.map((page) => (
                 <Typography
                   key={page.path}
@@ -75,17 +74,16 @@ export default function Footer() {
                 </Typography>
               ))}
             </Box>
-
-            {/* content later */}
           </Grid>
+          {/* content later */}
 
           {/* Column 3 — Visit Us */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="footerSubtitle" gutterBottom>
-              Visit Us
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
+          <Grid item xs={12} md={6} display="flex">
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {/* Address */}
+              <Typography variant="footerSubtitle" gutterBottom>
+                Visit Us
+              </Typography>
               <Box
                 sx={{
                   display: "flex",
@@ -136,19 +134,19 @@ export default function Footer() {
             </Box>
 
             {/* content later */}
-          </Grid>
 
-          {/* Column 4 — Connect */}
-          <Grid item xs={12} md={3}>
-            <Typography variant="footerSubtitle" gutterBottom>
-              Connect
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 3 }}>
+            {/* Column 4 — Connect */}
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Typography variant="footerSubtitle" gutterBottom>
+                Connect
+              </Typography>
               {/* Social icons row */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <Box
                   component="a"
-                  href="#"
+                  href="https://www.facebook.com/DIJiuJitsu/"
+                  target="_blank"
                   sx={{
                     color: "text.footerAlt",
                     display: "flex",
@@ -160,7 +158,8 @@ export default function Footer() {
 
                 <Box
                   component="a"
-                  href="#"
+                  href="https://www.instagram.com/danielislandjiujitsu/"
+                  target="_blank"
                   sx={{
                     color: "text.footerAlt",
                     display: "flex",
@@ -176,9 +175,8 @@ export default function Footer() {
                 © 2026 Daniel Island Jiu Jitsu. All rights reserved.
               </Typography>
             </Box>
-
-            {/* content later */}
           </Grid>
+          {/* content later */}
         </Grid>
       </Container>
     </Box>

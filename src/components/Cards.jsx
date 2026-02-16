@@ -1,25 +1,29 @@
 import { Box, Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
 import img from "../assets/card-2.jpg";
+import wsd from "../assets/adults-teens.webp";
+import kids from "../assets/kids.webp";
+import adults from "../assets/card-3.jpg";
+// import wsd from "../assets/card-3.jpg ";
 const cards = [
   {
     title: "Adult Jiu Jitsu",
     description:
       "Build confidence, fitness, and real-world self defense through structured training designed for all skill levels.",
-    image: img,
+    image: adults,
     href: "/programs",
   },
   {
     title: "Kids Program",
     description:
       "Help your child develop discipline, coordination, and confidence in a fun, safe, and supportive environment.",
-    image: img,
+    image: kids,
     href: "/programs",
   },
   {
     title: "Women’s Self Defense",
     description:
       "Learn practical techniques while building strength and awareness in a welcoming, empowering community.",
-    image: img,
+    image: wsd,
     href: "/programs",
   },
 ];

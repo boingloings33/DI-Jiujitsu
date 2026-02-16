@@ -44,56 +44,61 @@ export default function Navbar() {
           transition: "all 200ms ease",
         }}
       >
-        <Toolbar
-          sx={{
-            justifyContent: "space-between",
-            px: { xs: 2, md: 4, lg: 10, xl: 14 },
-          }}
-        >
-          {/* Logo */}
-
-          <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
-            <Box
-              component="img"
-              src={logo}
-              alt="Logo"
-              sx={{
-                height: 40,
-              }}
-            />
-          </Box>
-
-          {/* Desktop links */}
-          <Box
+        <Container maxWidth="lg">
+          <Toolbar
+            disableGutters
             sx={{
-              display: { xs: "none", md: "flex" },
-              gap: { lg: 0, xl: 2 },
+              justifyContent: "space-between",
             }}
           >
-            {pages.map((p) => (
+            {/* Logo */}
+            <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
+              <Box
+                component="img"
+                src={logo}
+                alt="Logo"
+                sx={{
+                  height: 40,
+                }}
+              />
+            </Box>
+            {/* Desktop links */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: { lg: 0, xl: 0 },
+              }}
+            >
+              {pages.map((p) => (
+                <Button
+                  variant="nav"
+                  key={p.path}
+                  component={NavLink}
+                  to={p.path}
+                  end={p.path === "/"}
+                  sx={{ fontSize: { xs: 14, xl: 14 } }}
+                >
+                  {p.label}
+                </Button>
+              ))}
+              {/* Member Button */}
               <Button
-                variant="nav"
-                key={p.path}
-                component={NavLink}
-                to={p.path}
-                end={p.path === "/"}
-                sx={{ fontSize: { xs: 14, xl: 16 } }}
+                sx={{ marginLeft: 2 }}
+                variant="outlined"
+                component="a"
+                href="https://devinedi.kicksite.net/users/sign_in"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {p.label}
+                Members Login
               </Button>
-            ))}
-
-            {/* Member Button */}
-            <Button sx={{ marginLeft: 2 }} variant="outlined">
-              Members Login
-            </Button>
-          </Box>
-
-          {/* Mobile menu */}
-          <IconButton sx={{ display: { xs: "flex", md: "none" } }} color="primary" onClick={() => setOpen(true)}>
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
+            </Box>
+            {/* Mobile menu */}
+            <IconButton sx={{ display: { xs: "flex", md: "none" } }} color="primary" onClick={() => setOpen(true)}>
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </Container>
       </AppBar>
 
       {/* Mobile Drawer */}
