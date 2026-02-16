@@ -14,8 +14,6 @@ import {
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import bgPrograms from "../assets/Group 3.svg";
 import React from "react";
 
@@ -116,7 +114,7 @@ export default function Contact() {
                 <Box
                   component="iframe"
                   title="Daniel Island Jiu Jitsu Location"
-                  src="https://www.google.com/maps?q=126%20Seven%20Farms%20Drive%2C%20Suite%20270%20Daniel%20Island%2C%20SC%2029492&output=embed"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJaz9PjT6J5hj-BwVgd7Ch0QY3yZSXFDI&q=126+Seven+Farms+Drive+Suite+270+Daniel+Island+SC+29492"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   onLoad={() => setMapLoaded(true)}
