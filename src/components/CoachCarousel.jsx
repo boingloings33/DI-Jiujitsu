@@ -72,28 +72,23 @@ const CoachCarousel = ({ slides, options }) => {
 
   return (
     <Box className="embla" sx={{ maxWidth: "100%", margin: "auto" }}>
-      <Box className="embla__viewport" ref={emblaRef} sx={{ overflow: "hidden" }}>
+      <Box className="embla__viewport" ref={emblaRef} sx={{ overflow: "hidden", height: {xs: "auto", md: 400} }}>
         <Box
           className="embla__container"
           sx={{
             display: "flex",
             touchAction: "pan-y pinch-zoom",
             marginLeft: { xs: 0, md: "-1.5rem" },
-            height: {
-              xs: "auto",
-              md: 460,
-              lg: 520,
-            },
           }}
         >
-          {slides.map((slide, index) => (
+           {slides.map((slide, index) => (
             <Box
               className="embla__slide"
               key={index}
               sx={{
                 flex: "0 0 100%",
                 minWidth: 0,
-                paddingLeft: { xs: 0, md: "1.5rem" },
+                paddingLeft: { xs: 0, md: "1.5rem", },
               }}
             >
               <Box
@@ -110,13 +105,14 @@ const CoachCarousel = ({ slides, options }) => {
                     flex: { xs: "none", md: "0 0 40%" },
                     maxWidth: { xs: "100%", md: 320 },
                     width: { xs: "100%", md: "auto" },
+                    order: { xs: 1, md: 0 },
                   }}
                 >
                   <Box
                     sx={{
                       position: "relative",
                       width: "100%",
-                      aspectRatio: { xs: "16 / 9", md: "2 / 4" },
+                      aspectRatio: { xs: "5 / 6", md: "5 / 8" },
                       overflow: "hidden",
                     }}
                   >
@@ -125,8 +121,8 @@ const CoachCarousel = ({ slides, options }) => {
                       src={slide.image}
                       alt={slide.title}
                       sx={{
-                        height: "100%",
-                        width: "100%",
+                        height: {xs: "100%", md: "90%"},
+                        width: "101%",
                         objectFit: "cover",
                         objectPosition: { xs: "50% 20%", md: "center center" },
                       }}
@@ -141,8 +137,9 @@ const CoachCarousel = ({ slides, options }) => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: { xs: "flex-start", md: "center" },
-                    py: { xs: 2, md: 4 },
+                    py: { xs: 0, md: 4 },
                     textAlign: "left",
+                    order: { xs: 0, md: 1 },
                   }}
                 >
                   <Typography

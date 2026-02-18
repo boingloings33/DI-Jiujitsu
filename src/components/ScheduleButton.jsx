@@ -39,17 +39,19 @@ export default function ScheduleButton({ variant = "fundamentals", text }) {
       variant="outlined"
       disableRipple
       sx={{
+        position: "relative",
         width: "100%",
         height: "100%",
         px: 1,
         borderRadius: 0.2,
-        backgroundColor: config.bg,
+        backgroundColor: config.bg, 
         borderColor: config.border,
         color: config.color,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         textTransform: "none",
+        overflow: "hidden",
 
         "&:hover": {
           backgroundColor: config.bg,
@@ -58,7 +60,7 @@ export default function ScheduleButton({ variant = "fundamentals", text }) {
       }}
     >
       <ShimmerOverlay>
-        <Typography variant="body2" sx={{ fontSize: { xs: 10, xl: 12 } }}>
+        <Typography variant="body2" sx={{ fontSize: { xs: 10, xl: 12 }, position: "relative", zIndex: 2 }}>
           {label}
         </Typography>
       </ShimmerOverlay>

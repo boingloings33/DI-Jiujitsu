@@ -2,13 +2,7 @@ import {
   Container,
   Typography,
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+
 } from "@mui/material";
 
 import ScheduleTable from "../components/ScheduleTable.jsx";
@@ -27,7 +21,7 @@ export default function Schedule() {
       <Container
         maxWidth="lg"
         sx={{
-          py: 8,
+          py: {xs: 4, md: 8},
           textAlign: "center",
           display: "flex",
           flexDirection: "column",

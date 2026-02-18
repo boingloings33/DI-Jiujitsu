@@ -1,5 +1,6 @@
 import { Box, Container, Typography, Button, Grid, Card, CardContent } from "@mui/material";
-import heroBg from "../assets/bg-placeholder.png";
+import heroBg from "../assets/tom-hero.webp";
+import heroLogo from "../assets/logo-tagline-white.webp"
 import bgMission from "../assets/bg-mission.svg";
 import bgSchedule from "../assets/bg-schedule.svg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -25,17 +26,25 @@ export default function Home() {
 
   // Stacked pinning effect - hero stays pinned while mission slides over it
   useEffect(() => {
-    const heroSection = heroContentRef.current.closest("section");
+    const heroSection = heroContentRef.current?.closest("section");
     if (!heroSection) return;
+
+    // Account for a fixed header (AppBar) so pin starts below it and avoids a jump equal to header height
+    const headerEl = document.querySelector("header");
+    const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+
     const pinTrigger = ScrollTrigger.create({
       trigger: heroSection,
-      start: "top top",
+      start: `top top+=${headerHeight}`,
       end: "bottom top",
       pin: true,
       pinSpacing: false,
+      pinType: "fixed",
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
     });
     return () => {
-      pinTrigger.kill(true);
+      if (pinTrigger) pinTrigger.kill(true);
     };
   }, []);
 
@@ -170,8 +179,10 @@ export default function Home() {
               height: "100%",
               backgroundImage: `url(${heroBg})`,
               backgroundSize: "cover",
-              backgroundPosition: "top",
+              backgroundPosition: { xs: "20%", md: "top" },
               zIndex: -1,
+              filter: "brightness(.65)"
+             
             }}
           />
           {/* Dark overlay for better text contrast */}
@@ -187,8 +198,9 @@ export default function Home() {
             }}
           />
           {/* Content */}
-          <Box ref={heroContentRef} maxWidth="700px" sx={{ px: 2, position: "relative", zIndex: 1 }}>
-            <Typography
+          <Box ref={heroContentRef} maxWidth="700px" sx={{ px: 2, position: "relative", zIndex: 1, mb: 8 }}>
+            
+            {/* <Typography
               variant="h1"
               gutterBottom
               sx={{
@@ -208,8 +220,27 @@ export default function Home() {
             >
               Welcome to Daniel Island Jiu Jitsu. A sanctuary for the study of Brazilian Jiu Jitsu, rooted in
               tradition and forged in the modern era.
-            </Typography>
-            <Button variant="hero" endIcon={<ArrowForwardIcon />}>
+            </Typography> */}
+            
+            <Box
+              component="img"
+              src={heroLogo}
+              alt="Daniel Island Jiu Jitsu logo"
+              sx={{ maxWidth: "84%", height: "auto", mb: 2  }}
+            />
+            <Button
+              variant="hero"
+              endIcon={<ArrowForwardIcon />}
+              onClick={() => {
+                const target = document.getElementById("mission");
+                const header = document.querySelector("header");
+                const headerHeight = header ? header.offsetHeight : 0;
+                if (target) {
+                  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+              }}
+            >
               Begin Your Journey
             </Button>
           </Box>

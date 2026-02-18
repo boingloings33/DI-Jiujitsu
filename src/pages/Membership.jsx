@@ -13,8 +13,7 @@ export default function Membership() {
     >
       <Container
         sx={{
-          py: 8,
-          px: {},
+          py: {xs: 4, md: 8},
           textAlign: "center",
           display: "flex",
           flexDirection: "column",

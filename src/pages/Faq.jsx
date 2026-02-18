@@ -5,7 +5,7 @@ export default function Faq() {
   return (
     <Container
       sx={{
-        py: 8,
+       py: {xs: 4, md: 8},
       }}
     >
       <Box sx={{ textAlign: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
