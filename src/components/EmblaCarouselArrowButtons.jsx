@@ -57,8 +57,8 @@ export const PrevButton = ({ disabled, onClick }) => {
         borderWidth: 2,
         borderStyle: "solid",
         borderColor: disabled ? alpha("#113D5D", 0.3) : "primary.main",
-        width: { xs: "3rem", md: "3.6rem" },
-        height: { xs: "3rem", md: "3.6rem" },
+        width: { xs: "3rem", md: "3.2rem" },
+        height: { xs: "3rem", md: "3.2rem" },
         zIndex: 1,
         borderRadius: 0, // Sharp edges
         color: disabled ? alpha("#113D5D", 0.3) : "primary.main",
@@ -68,6 +68,10 @@ export const PrevButton = ({ disabled, onClick }) => {
         "&:hover": {
           backgroundColor: disabled ? "transparent" : alpha("#113D5D", 0.05),
           transform: disabled ? "none" : "scale(1.1)",
+        },
+        "&:active": {
+          transform: disabled ? "none" : "scale(0.95)",
+          boxShadow: disabled ? "none" : `inset 0 2px 4px ${alpha("#000", 0.2)}`,
         },
       }}
     >
@@ -109,8 +113,8 @@ export const NextButton = ({ disabled, onClick }) => {
         borderWidth: 2,
         borderStyle: "solid",
         borderColor: disabled ? alpha("#113D5D", 0.3) : "primary.main",
-        width: { xs: "3rem", md: "3.6rem" },
-        height: { xs: "3rem", md: "3.6rem" },
+        width: { xs: "3rem", md: "3.2rem" },
+        height: { xs: "3rem", md: "3.2rem" },
         zIndex: 1,
         borderRadius: 0, // Sharp edges
         color: disabled ? alpha("#113D5D", 0.3) : "primary.main",
@@ -120,6 +124,10 @@ export const NextButton = ({ disabled, onClick }) => {
         "&:hover": {
           backgroundColor: disabled ? "transparent" : alpha("#113D5D", 0.05),
           transform: disabled ? "none" : "scale(1.1)",
+        },
+        "&:active": {
+          transform: disabled ? "none" : "scale(0.95)",
+          boxShadow: disabled ? "none" : `inset 0 2px 4px ${alpha("#000", 0.2)}`,
         },
       }}
     >

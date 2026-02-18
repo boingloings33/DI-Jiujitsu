@@ -17,7 +17,7 @@ export default function Programs() {
     >
       <Container
         sx={{
-          py: 8,
+          py: {xs: 4, md: 8},
           textAlign: "center",
           display: "flex",
           flexDirection: "column",

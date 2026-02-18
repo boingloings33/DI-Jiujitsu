@@ -14,7 +14,7 @@ import { alpha } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../assets/logo-main.svg";
+import logo from "../assets/logo-main.webp";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import theme from "../theme/theme.js";
 const pages = [

@@ -31,7 +31,7 @@ export default function Contact() {
     >
       <Container
         sx={{
-          py: 8,
+          py: {xs: 4, md: 8},
           textAlign: "center",
         }}
       >
