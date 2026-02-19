@@ -266,7 +266,7 @@ export default function Home() {
             zIndex: 1,
           }}
         >
-          <Container maxWidth="md">
+          <Container maxWidth="lg" >
             <Box
               ref={missionRef}
               sx={{
@@ -372,7 +372,7 @@ export default function Home() {
           </Box>
 
           {/* Enhanced Cards Grid */}
-          <Grid container spacing={{ xs: 3, md: 4, lg: 5 }} justifyContent="center">
+          <Grid container  spacing={{ xs: 3, md: 4, lg: 5 }} justifyContent="center">
             <Grid item xs={12}>
               <Cards />
             </Grid>
@@ -413,7 +413,7 @@ export default function Home() {
         }}
       >
         {/* Glass morphism title box */}
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <Box
             ref={scheduleTitleRef}
             sx={{
@@ -649,7 +649,7 @@ export default function Home() {
               fontSize: { md: "48px", xl: "64px" },
             }}
           >
-            Daniel Island Jiu Jitsu is Now Open
+            Daniel Island Jiu Jitsu is Now Open!
           </Typography>
           <Typography
             variant="body1"

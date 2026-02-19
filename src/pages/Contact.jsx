@@ -10,15 +10,44 @@ import {
   Button,
   Grid,
   Skeleton,
+  FormHelperText,
 } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import bgPrograms from "../assets/Group 3.svg";
 import React from "react";
+import { useForm, Controller } from "react-hook-form";
 
 export default function Contact() {
   const [mapLoaded, setMapLoaded] = React.useState(false);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      interests: {
+        dropIn: false,
+        adultMembership: false,
+        futureKids: false,
+        other: false,
+      },
+      additionalInfo: "",
+    },
+  });
+
+  const selectedInterests = watch("interests");
+  const hasSelectedInterest = Object.values(selectedInterests).some((val) => val);
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+    // Add your form submission logic here
+    // e.g., send data to backend, email service, etc.
+  };
 
   return (
     <Box
@@ -114,7 +143,7 @@ export default function Contact() {
                 <Box
                   component="iframe"
                   title="Daniel Island Jiu Jitsu Location"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJaz9PjT6J5hj-BwVgd7Ch0QY3yZSXFDI&q=126+Seven+Farms+Drive+Suite+270+Daniel+Island+SC+29492"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&q=126+Seven+Farms+Drive+Suite+270+Daniel+Island+SC+29492`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   onLoad={() => setMapLoaded(true)}
@@ -174,7 +203,6 @@ export default function Contact() {
               </Box>
             </Box>
           </Grid>
-          {/* Second Column */}
           <Grid
             item
             xs={12}
@@ -196,92 +224,218 @@ export default function Contact() {
             <Typography variant="h4" gutterBottom color="primary.main">
               Send a Message
             </Typography>
-            {/* Name */}
-            <TextField
-              label="Name"
-              variant="outlined"
-              fullWidth
-              InputProps={{
-                sx: {
-                  backgroundColor: "background.default",
-                },
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#DCD9D0",
-                },
-              }}
-            />
-            {/* Email */}
-            <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
-              InputProps={{
-                sx: {
-                  backgroundColor: "background.default",
-                },
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#DCD9D0",
-                },
-              }}
-            />
-            {/* Interests */}
-            <Box>
-              <Typography variant="subtitle2" sx={{ mb: 1, color: "text.secondary", letterSpacing: 0.5 }}>
-                What are you interested in?
-              </Typography>
-              <FormGroup>
-                {["Drop-in Class", "Adult Membership + Pricing", "Future Kids Program", "Other"].map((label) => (
-                  <FormControlLabel
-                    key={label}
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "#DCD9D0",
-                          "&.Mui-checked": {
-                            color: "primary.main",
-                          },
-                        }}
-                      />
-                    }
-                    label={label}
+            <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+              {/* Name */}
+              <Controller
+                name="name"
+                control={control}
+                rules={{
+                  required: "Name is required",
+                  minLength: {
+                    value: 2,
+                    message: "Name must be at least 2 characters",
+                  },
+                }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    label="Name"
+                    variant="outlined"
+                    fullWidth
+                    error={!!errors.name}
+                    helperText={errors.name?.message}
+                    InputProps={{
+                      sx: {
+                        backgroundColor: "background.default",
+                      },
+                    }}
+                    sx={{
+                      mb: 2,
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#DCD9D0",
+                      },
+                    }}
                   />
-                ))}
-              </FormGroup>
+                )}
+              />
+              {/* Email */}
+              <Controller
+                name="email"
+                control={control}
+                rules={{
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address",
+                  },
+                }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    error={!!errors.email}
+                    helperText={errors.email?.message}
+                    InputProps={{
+                      sx: {
+                        backgroundColor: "background.default",
+                      },
+                    }}
+                    sx={{
+                      mb: 2,
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#DCD9D0",
+                      },
+                    }}
+                  />
+                )}
+              />
+              {/* Interests */}
+              <Box sx={{ mb: 2 }}>
+                <Typography variant="subtitle2" sx={{ mb: 1, color: "text.secondary", letterSpacing: 0.5 }}>
+                  What are you interested in?
+                </Typography>
+                <FormGroup>
+                  <Controller
+                    name="interests.dropIn"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            {...field}
+                            checked={field.value}
+                            sx={{
+                              color: "#DCD9D0",
+                              "&.Mui-checked": {
+                                color: "primary.main",
+                              },
+                            }}
+                          />
+                        }
+                        label="Drop-in Class"
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="interests.adultMembership"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            {...field}
+                            checked={field.value}
+                            sx={{
+                              color: "#DCD9D0",
+                              "&.Mui-checked": {
+                                color: "primary.main",
+                              },
+                            }}
+                          />
+                        }
+                        label="Adult Membership + Pricing"
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="interests.futureKids"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            {...field}
+                            checked={field.value}
+                            sx={{
+                              color: "#DCD9D0",
+                              "&.Mui-checked": {
+                                color: "primary.main",
+                              },
+                            }}
+                          />
+                        }
+                        label="Future Kids Program"
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="interests.other"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            {...field}
+                            checked={field.value}
+                            sx={{
+                              color: "#DCD9D0",
+                              "&.Mui-checked": {
+                                color: "primary.main",
+                              },
+                            }}
+                          />
+                        }
+                        label="Other"
+                      />
+                    )}
+                  />
+                </FormGroup>
+                {!hasSelectedInterest && (
+                  <FormHelperText error sx={{ mt: 1 }}>
+                    Please select at least one interest
+                  </FormHelperText>
+                )}
+              </Box>
+              {/* Additional Info */}
+              <Controller
+                name="additionalInfo"
+                control={control}
+                rules={{
+                  maxLength: {
+                    value: 500,
+                    message: "Additional info must be less than 500 characters",
+                  },
+                }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    label="Additional Info"
+                    multiline
+                    rows={2}
+                    fullWidth
+                    error={!!errors.additionalInfo}
+                    helperText={errors.additionalInfo?.message}
+                    InputProps={{
+                      sx: {
+                        backgroundColor: "background.default",
+                      },
+                    }}
+                    sx={{
+                      mb: 2,
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#DCD9D0",
+                      },
+                    }}
+                  />
+                )}
+              />
+              {/* Submit */}
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                sx={{
+                  mt: 1,
+                  py: 1.5,
+                  textTransform: "none",
+                  fontWeight: 500,
+                }}
+              >
+                Send Message
+              </Button>
             </Box>
-            {/* Additional Info */}
-            <TextField
-              label="Additional Info"
-              multiline
-              rows={2}
-              fullWidth
-              InputProps={{
-                sx: {
-                  backgroundColor: "background.default",
-                },
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#DCD9D0",
-                },
-              }}
-            />
-            {/* Submit */}
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                mt: 1,
-                py: 1.5,
-                textTransform: "none",
-                fontWeight: 500,
-              }}
-            >
-              Send Message
-            </Button>
           </Grid>
         </Grid>
       </Container>
