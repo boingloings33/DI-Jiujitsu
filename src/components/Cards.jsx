@@ -2,7 +2,7 @@ import { Box, Card, CardMedia, CardContent, Typography, Link } from "@mui/materi
 import img from "../assets/card-2.jpg";
 import wsd from "../assets/adults-teens.webp";
 import kids from "../assets/kids.webp";
-import adults from "../assets/card-3.jpg";
+import adults from "../assets/adults-2.jpg";
 // import wsd from "../assets/card-3.jpg ";
 const cards = [
   {

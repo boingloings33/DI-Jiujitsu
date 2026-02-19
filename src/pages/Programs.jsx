@@ -1,7 +1,7 @@
 import { Container, Box, Typography, Divider } from "@mui/material";
 import imgAdultsTeens from "../assets/adults-teens.webp";
 import imgKids from "../assets/kids.webp";
-import imgWsd from "../assets/card-3.jpg";
+import imgWsd from "../assets/adults-2.jpg";
 import Section from "../components/Section.jsx";
 import bgPrograms from "../assets/Group 3.svg";
 
