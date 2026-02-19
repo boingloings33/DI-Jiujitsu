@@ -11,7 +11,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -319,7 +319,7 @@ export default function Home() {
           minHeight: { lg: "100vh" },
           display: "flex",
           alignItems: "center",
-          py: { xs: 10, md: 14, lg: 18 },
+          py: { xs: 10, md: 14 },
           zIndex: 1,
           bgcolor: "background.default",
           "&::before": {
@@ -334,12 +334,12 @@ export default function Home() {
           },
         }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
           <Box
             ref={trainingHeaderRef}
             sx={{
               textAlign: "center",
-              mb: { xs: 6, md: 8, lg: 10 },
+              mb: { xs: 6 },
             }}
           >
             <Typography
@@ -348,7 +348,6 @@ export default function Home() {
               color="text.secondary"
               sx={{
                 fontSize: { md: "0.85rem", xl: "0.95rem" },
-                mb: 2,
               }}
             >
               Our Curriculum
@@ -358,7 +357,6 @@ export default function Home() {
               gutterBottom
               sx={{
                 fontSize: { md: "32px", lg: "40px", xl: "52px" },
-                mb: 3,
               }}
             >
               Training Programs
