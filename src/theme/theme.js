@@ -191,7 +191,10 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: BRAND.background,
+          backgroundColor: BRAND.background
+        },
+         html: {
+          backgroundColor: BRAND.primary,
         },
       },
     },

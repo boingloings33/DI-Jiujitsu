@@ -11,6 +11,7 @@ import {
   Grid,
   Skeleton,
   FormHelperText,
+  Alert,
 } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
@@ -18,14 +19,24 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import bgPrograms from "../assets/Group 3.svg";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [mapLoaded, setMapLoaded] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState(null);
+
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
   const {
     control,
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm({
     defaultValues: {
       name: "",
@@ -43,10 +54,55 @@ export default function Contact() {
   const selectedInterests = watch("interests");
   const hasSelectedInterest = Object.values(selectedInterests).some((val) => val);
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    // Add your form submission logic here
-    // e.g., send data to backend, email service, etc.
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Format interests as readable string
+      const selectedInterestsList = Object.entries(data.interests)
+        .filter(([, value]) => value)
+        .map(([key]) => {
+          const labels = {
+            dropIn: "Drop-in Class",
+            adultMembership: "Adult Membership + Pricing",
+            futureKids: "Future Kids Program",
+            other: "Other",
+          };
+          return labels[key];
+        })
+        .join(", ");
+
+      // Prepare email template variables
+      const templateParams = {
+        to_email: "baiolemi@gmail.com",
+        from_name: data.name,
+        from_email: data.email,
+        interests: selectedInterestsList,
+        message: data.additionalInfo || "No additional info provided",
+      };
+
+      // Send email via EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message sent successfully! We'll get back to you soon.",
+      });
+      reset();
+    } catch (error) {
+      console.error("Email send failed:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -225,6 +281,12 @@ export default function Contact() {
               Send a Message
             </Typography>
             <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+              {/* Status Alert */}
+              {submitStatus && (
+                <Alert severity={submitStatus.type} sx={{ mb: 2 }}>
+                  {submitStatus.message}
+                </Alert>
+              )}
               {/* Name */}
               <Controller
                 name="name"
@@ -426,6 +488,7 @@ export default function Contact() {
                 type="submit"
                 variant="contained"
                 size="large"
+                disabled={isSubmitting || !hasSelectedInterest}
                 sx={{
                   mt: 1,
                   py: 1.5,
@@ -433,7 +496,7 @@ export default function Contact() {
                   fontWeight: 500,
                 }}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </Box>
           </Grid>

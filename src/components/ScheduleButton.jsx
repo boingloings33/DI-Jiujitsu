@@ -37,7 +37,6 @@ export default function ScheduleButton({ variant = "fundamentals", text }) {
   return (
     <Button
       variant="outlined"
-      disableRipple
       sx={{
         position: "relative",
         width: "100%",

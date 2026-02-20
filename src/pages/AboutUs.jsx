@@ -1,7 +1,7 @@
 import { Container, Typography, Box, Divider, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import CoachCarousel from "../components/CoachCarousel";
 
-import coachTom from "../assets/coaches/headshot-Tom-Small.jpg";
+import coachTom from "../assets/coaches/headshot-Tom-Small_convert.webp";
 import coachJosh from "../assets/coaches/headshot-Josh-Small.jpg";
 import coachEmmy from "../assets/coaches/headshot-Emmy-Small.jpg";
 import coachTravis from "../assets/coaches/headshot-Travis-small.webp";

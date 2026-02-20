@@ -26,7 +26,8 @@ export default function Footer() {
         backgroundColor: "primary.main",
         borderTop: "1px solid",
         borderColor: "divider",
-
+        display: "flex",
+        height: "fit-content",
         py: 6,
       }}
     >
