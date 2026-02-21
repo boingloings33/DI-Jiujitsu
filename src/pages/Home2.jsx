@@ -177,8 +177,7 @@ export default function Home() {
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-          }}
-        >
+          }}>
           {/* Background image */}
           <Box
             sx={{
@@ -210,8 +209,15 @@ export default function Home() {
           <Box
             ref={heroContentRef}
             maxWidth="700px"
-            sx={{ px: 2, position: "relative", zIndex: 1, mb: 8 }}
-          >
+            sx={{
+              px: 2,
+              position: "relative",
+              zIndex: 1,
+              mb: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}>
             {/* <Typography
               variant="h1"
               gutterBottom
@@ -238,7 +244,7 @@ export default function Home() {
               component="img"
               src={heroLogo}
               alt="Daniel Island Jiu Jitsu logo"
-              sx={{ maxWidth: "84%", height: "auto", mb: 2 }}
+              sx={{ maxWidth: { xs: "86%", lg: 360, xl: "86" }, mb: 2 }}
             />
             <Button
               variant="hero"
@@ -254,8 +260,7 @@ export default function Home() {
                     headerHeight;
                   window.scrollTo({ top, behavior: "smooth" });
                 }
-              }}
-            >
+              }}>
               Begin Your Journey
             </Button>
           </Box>
@@ -279,8 +284,7 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             zIndex: 1,
-          }}
-        >
+          }}>
           <Container maxWidth="lg">
             <Box
               ref={missionRef}
@@ -289,15 +293,13 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-              }}
-            >
+              }}>
               <Typography
                 variant="h2"
                 gutterBottom
                 sx={{
                   fontSize: { xl: "56px" },
-                }}
-              >
+                }}>
                 Our Mission
               </Typography>
               <Typography
@@ -306,8 +308,7 @@ export default function Home() {
                   fontSize: { md: "1.15rem", lg: "1.2rem", xl: "1.35rem" },
                   lineHeight: 1.8,
                   maxWidth: 800,
-                }}
-              >
+                }}>
                 At Daniel Island Jiu Jitsu, our mission is to empower
                 individuals of all ages to become their best selves by building
                 character and confidence through the transformative practice of
@@ -349,24 +350,21 @@ export default function Home() {
             backgroundImage: `radial-gradient(circle at 20% 50%, ${alpha("#006255", 0.03)} 0%, transparent 50%)`,
             pointerEvents: "none",
           },
-        }}
-      >
+        }}>
         <Container maxWidth="lg">
           <Box
             ref={trainingHeaderRef}
             sx={{
               textAlign: "center",
               mb: { xs: 6 },
-            }}
-          >
+            }}>
             <Typography
               variant="subtitle2"
               gutterBottom
               color="text.secondary"
               sx={{
                 fontSize: { md: "0.85rem", xl: "0.95rem" },
-              }}
-            >
+              }}>
               Our Curriculum
             </Typography>
             <Typography
@@ -374,8 +372,7 @@ export default function Home() {
               gutterBottom
               sx={{
                 fontSize: { md: "32px", lg: "40px", xl: "52px" },
-              }}
-            >
+              }}>
               Training Programs
             </Typography>
             <Box
@@ -392,8 +389,7 @@ export default function Home() {
           <Grid
             container
             spacing={{ xs: 3, md: 4, lg: 5 }}
-            justifyContent="center"
-          >
+            justifyContent="center">
             <Grid item xs={12}>
               <Cards />
             </Grid>
@@ -405,8 +401,7 @@ export default function Home() {
               sx={{
                 color: "text.primary",
                 fontSize: { xs: "1rem", xl: "1.1rem" },
-              }}
-            >
+              }}>
               View All Programs →
             </AnimatedTextLink>
           </Box>
@@ -431,8 +426,7 @@ export default function Home() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           gap: { xs: 4, md: 6, lg: 7 },
-        }}
-      >
+        }}>
         {/* Glass morphism title box */}
         <Container maxWidth="lg">
           <Box
@@ -445,8 +439,7 @@ export default function Home() {
               border: `1px solid ${alpha("#fff", 0.15)}`,
 
               p: { xs: 4, md: 5, lg: 6 },
-            }}
-          >
+            }}>
             <Typography
               variant="h2"
               gutterBottom
@@ -454,8 +447,7 @@ export default function Home() {
               sx={{
                 mb: { xs: 2, md: 3 },
                 fontSize: { md: "48px", xl: "64px" },
-              }}
-            >
+              }}>
               Schedule & Routine
             </Typography>
             <Typography
@@ -466,8 +458,7 @@ export default function Home() {
                 lineHeight: 1.7,
                 maxWidth: 600,
                 mx: "auto",
-              }}
-            >
+              }}>
               Consistency is the key to mastery. Our doors are open daily for
               anyone ready to learn, grow, and have fun along the way.
             </Typography>
@@ -482,8 +473,7 @@ export default function Home() {
           gap={{ xs: 3, md: 4, lg: 5 }}
           justifyContent="center"
           alignItems="center"
-          px={{ xs: 2, md: 0 }}
-        >
+          px={{ xs: 2, md: 0 }}>
           <Box
             sx={{
               width: { xs: "100%", md: "auto" },
@@ -517,8 +507,7 @@ export default function Home() {
                   left: "100%",
                 },
               },
-            }}
-          >
+            }}>
             <Box
               sx={{
                 color: "text.background",
@@ -530,17 +519,15 @@ export default function Home() {
                 px: { xs: 3, md: 4, lg: 5 },
                 py: { xs: 3, lg: 4 },
                 width: "100%",
-              }}
-            >
+              }}>
               <Typography
                 variant="h5"
                 sx={{
                   fontWeight: 300,
                   flexShrink: 0,
                   fontSize: { md: "1.1rem", lg: "1.3rem", xl: "1.5rem" },
-                }}
-              >
-                Adults (Fundamentals)
+                }}>
+                Fundamentals
               </Typography>
               <Typography
                 variant="body2"
@@ -548,8 +535,7 @@ export default function Home() {
                   letterSpacing: 1.6,
                   fontSize: { xs: 10, lg: 12, xl: 13 },
                   lineHeight: 1.6,
-                }}
-              >
+                }}>
                 MON—TUE <br /> 5:45PM — 6:45PM
               </Typography>
             </Box>
@@ -587,8 +573,7 @@ export default function Home() {
                   left: "100%",
                 },
               },
-            }}
-          >
+            }}>
             <Box
               sx={{
                 color: "text.background",
@@ -600,16 +585,14 @@ export default function Home() {
                 px: { xs: 3, md: 4, lg: 5 },
                 py: { xs: 3, lg: 4 },
                 width: "100%",
-              }}
-            >
+              }}>
               <Typography
                 variant="h5"
                 sx={{
                   fontWeight: 300,
                   flexShrink: 0,
                   fontSize: { md: "1.1rem", lg: "1.3rem", xl: "1.5rem" },
-                }}
-              >
+                }}>
                 Kids Training
               </Typography>
               <Typography
@@ -618,8 +601,7 @@ export default function Home() {
                   letterSpacing: 1.6,
                   fontSize: { xs: 10, lg: 12, xl: 13 },
                   lineHeight: 1.6,
-                }}
-              >
+                }}>
                 MON—THURS <br /> 4:00PM — 5:30PM
               </Typography>
             </Box>
@@ -631,8 +613,7 @@ export default function Home() {
             onClick={() => navigate("/schedule")}
             sx={{
               fontSize: { xs: "1rem", xl: "1.1rem" },
-            }}
-          >
+            }}>
             View Full Class Schedule →
           </AnimatedTextLink>
         </Box>
@@ -649,8 +630,7 @@ export default function Home() {
           alignItems: "center",
           py: { xs: 10, md: 16, lg: 20 },
           bgcolor: "background.default",
-        }}
-      >
+        }}>
         <Container
           ref={openSectionRef}
           sx={{
@@ -660,8 +640,7 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             maxWidth: { xs: "100%", lg: "md" },
-          }}
-        >
+          }}>
           <Typography
             variant="h2"
             gutterBottom
@@ -669,8 +648,7 @@ export default function Home() {
             sx={{
               mb: { xs: 3, md: 4 },
               fontSize: { xs: "36px", md: "64px" },
-            }}
-          >
+            }}>
             Daniel Island Jiu Jitsu is Now Open!
           </Typography>
           <Typography
@@ -681,16 +659,14 @@ export default function Home() {
               lineHeight: 1.8,
               maxWidth: 700,
               color: "text.primary",
-            }}
-          >
+            }}>
             Take the first step. Drop in, watch a class, meet our instructors,
             and experience the dojo for yourself!
           </Typography>
           <Button
             onClick={() => navigate("/contact")}
             variant="outlined"
-            sx={{ paddingY: 2, paddingX: 8 }}
-          >
+            sx={{ paddingY: 2, paddingX: 8 }}>
             Get in Touch
           </Button>
         </Container>
