@@ -10,6 +10,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
 
 export default function PricingCard({ title, subtitle, price, time, bullets }) {
@@ -65,9 +66,11 @@ export default function PricingCard({ title, subtitle, price, time, bullets }) {
 
       {/* Join Us button */}
       <Box sx={{ mt: 2, textAlign: "center" }}>
-        <Button variant="outlined" color="primary" fullWidth>
-          Join Us
-        </Button>
+        <Link to="/contact" style={{ textDecoration: "none" }}>
+          <Button variant="outlined" color="primary" fullWidth>
+            Join Us
+          </Button>
+        </Link>
       </Box>
     </Card>
   );

@@ -8,6 +8,7 @@ import Schedule from "./pages/Schedule";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
+import DropIn from "./pages/DropIn";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer";
 import ScrollCleanup from "./utils/ScrollCleanup.jsx";
@@ -24,6 +25,7 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Toolbar />
+      <ScrollCleanup />
       <Routes>
         <Route path="/" element={<Home2 />} />
         <Route path="/programs" element={<Programs />} />
@@ -32,7 +34,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<Faq />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/dropin" element={<DropIn />} />
       </Routes>
       <Footer />
     </>

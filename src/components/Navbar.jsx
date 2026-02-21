@@ -39,7 +39,9 @@ export default function Navbar() {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: trigger ? alpha(theme.palette.background.paper, 0.9) : "background.paper",
+          backgroundColor: trigger
+            ? alpha(theme.palette.background.paper, 0.9)
+            : "background.paper",
           backdropFilter: trigger ? "blur(8px)" : "none",
           transition: "all 200ms ease",
         }}
@@ -52,7 +54,11 @@ export default function Navbar() {
             }}
           >
             {/* Logo */}
-            <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
+            <Box
+              component={Link}
+              to="/"
+              sx={{ display: "flex", alignItems: "center" }}
+            >
               <Box
                 component="img"
                 src={logo}
@@ -94,7 +100,11 @@ export default function Navbar() {
               </Button>
             </Box>
             {/* Mobile menu */}
-            <IconButton sx={{ display: { xs: "flex", md: "none" } }} color="primary" onClick={() => setOpen(true)}>
+            <IconButton
+              sx={{ display: { xs: "flex", md: "none" } }}
+              color="primary"
+              onClick={() => setOpen(true)}
+            >
               <MenuIcon />
             </IconButton>
           </Toolbar>
@@ -107,14 +117,24 @@ export default function Navbar() {
           <List>
             {pages.map((p) => (
               <ListItem key={p.path} disablePadding>
-                <ListItemButton component={Link} to={p.path} onClick={() => setOpen(false)}>
+                <ListItemButton
+                  component={Link}
+                  to={p.path}
+                  onClick={() => setOpen(false)}
+                >
                   {p.label}
                 </ListItemButton>
               </ListItem>
             ))}
 
             <Box sx={{ p: 2 }}>
-              <Button fullWidth variant="contained">
+              <Button
+                fullWidth
+                variant="contained"
+                component={Link}
+                to="/contact"
+                onClick={() => setOpen(false)}
+              >
                 Join Now
               </Button>
             </Box>

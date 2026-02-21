@@ -8,6 +8,7 @@ import Cards from "../components/Cards.jsx";
 import { alpha } from "@mui/material/styles";
 import AnimatedTextLink from "../components/AnimatedTextLink";
 import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,6 +17,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
+  const navigate = useNavigate();
   // const accentColor = "#a3a3a344";
   const heroContentRef = useRef(null);
   const missionRef = useRef(null);
@@ -380,11 +382,11 @@ export default function Home() {
 
           <Box sx={{ textAlign: "center", mt: { xs: 6, md: 8 } }}>
             <AnimatedTextLink
+              onClick={() => navigate("/programs")}
               sx={{
                 color: "text.primary",
                 fontSize: { xs: "1rem", xl: "1.1rem" },
               }}
-              href="/programs"
             >
               View All Programs →
             </AnimatedTextLink>
@@ -606,7 +608,7 @@ export default function Home() {
 
         <Box sx={{ textAlign: "center", mt: { xs: 2, md: 3 } }}>
           <AnimatedTextLink
-            href="/schedule"
+            onClick={() => navigate("/schedule")}
             sx={{
               fontSize: { xs: "1rem", xl: "1.1rem" },
             }}
@@ -664,7 +666,7 @@ export default function Home() {
             Take the first step. Drop in, watch a class, meet our instructors, and experience the dojo for
             yourself!
           </Typography>
-          <Button href="/contact" variant="outlined" sx={{ paddingY: 2, paddingX: 8 }}>
+          <Button onClick={() => navigate("/contact")} variant="outlined" sx={{ paddingY: 2, paddingX: 8 }}>
             Get in Touch
           </Button>
         </Container>

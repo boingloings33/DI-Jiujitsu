@@ -1,20 +1,31 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Box, Typography, Divider } from "@mui/material";
-import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
+import {
+  NextButton,
+  PrevButton,
+  usePrevNextButtons,
+} from "./EmblaCarouselArrowButtons";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 const TWEEN_FACTOR_BASE = 0.84;
 
-const numberWithinRange = (number, min, max) => Math.min(Math.max(number, min), max);
+const numberWithinRange = (number, min, max) =>
+  Math.min(Math.max(number, min), max);
 
 const CoachCarousel = ({ slides, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const tweenFactor = useRef(0);
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+    useDotButton(emblaApi);
 
-  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
 
   const setTweenFactor = useCallback((emblaApi) => {
     tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
@@ -72,7 +83,11 @@ const CoachCarousel = ({ slides, options }) => {
 
   return (
     <Box className="embla" sx={{ maxWidth: "100%", margin: "auto" }}>
-      <Box className="embla__viewport" ref={emblaRef} sx={{ overflow: "hidden", height: {xs: "auto", md: 400} }}>
+      <Box
+        className="embla__viewport"
+        ref={emblaRef}
+        sx={{ overflow: "hidden", height: { xs: "auto", md: 400 } }}
+      >
         <Box
           className="embla__container"
           sx={{
@@ -81,14 +96,14 @@ const CoachCarousel = ({ slides, options }) => {
             marginLeft: { xs: 0, md: "-1.5rem" },
           }}
         >
-           {slides.map((slide, index) => (
+          {slides.map((slide, index) => (
             <Box
               className="embla__slide"
               key={index}
               sx={{
                 flex: "0 0 100%",
                 minWidth: 0,
-                paddingLeft: { xs: 0, md: "1.5rem", },
+                paddingLeft: { xs: 0, md: "1.5rem" },
               }}
             >
               <Box
@@ -121,7 +136,7 @@ const CoachCarousel = ({ slides, options }) => {
                       src={slide.image}
                       alt={slide.title}
                       sx={{
-                        height: {xs: "100%", md: "90%"},
+                        height: { xs: "500px", md: "90%" },
                         width: "101%",
                         objectFit: "cover",
                         objectPosition: { xs: "50% 20%", md: "center center" },
@@ -185,23 +200,30 @@ const CoachCarousel = ({ slides, options }) => {
         className="embla__controls"
         sx={{
           display: "grid",
-          gridTemplateColumns: "auto 1fr",
+          gridTemplateColumns: { xs: "auto 1fr auto", md: "auto 1fr" },
           justifyContent: "space-between",
           gap: { xs: "1rem", md: "1.2rem" },
-          mt: { xs: 3, md: 4 },
+          mt: { xs: 2, md: 4 },
+          alignItems: "center",
         }}
       >
         <Box
           className="embla__buttons"
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
             gap: "0.6rem",
             alignItems: "center",
+            order: { xs: 1, md: 0 },
           }}
         >
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            />
+          </Box>
         </Box>
 
         <Box
@@ -209,13 +231,28 @@ const CoachCarousel = ({ slides, options }) => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "flex-end",
+            justifyContent: { xs: "center", md: "flex-end" },
             alignItems: "center",
+            order: { xs: 2, md: 1 },
+            gap: "0.4rem",
           }}
         >
           {scrollSnaps.map((_, index) => (
-            <DotButton key={index} onClick={() => onDotButtonClick(index)} selected={index === selectedIndex} />
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              selected={index === selectedIndex}
+            />
           ))}
+        </Box>
+
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+            order: 3,
+          }}
+        >
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </Box>
       </Box>
     </Box>

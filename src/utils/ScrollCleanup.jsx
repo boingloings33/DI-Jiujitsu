@@ -6,6 +6,9 @@ function ScrollCleanup() {
   const location = useLocation();
 
   useEffect(() => {
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+
     // kill all ScrollTriggers on route change
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());

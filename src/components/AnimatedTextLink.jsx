@@ -1,16 +1,35 @@
-import { Link, Typography } from "@mui/material";
+import { Link, Typography, Box } from "@mui/material";
 
-export default function AnimatedTextLink({ href, children, variant = "subtitle2", sx, linkSx }) {
+export default function AnimatedTextLink({ href, onClick, children, variant = "subtitle2", sx, linkSx }) {
+  const Component = onClick ? Box : Link;
+  const componentProps = onClick 
+    ? {
+        onClick,
+        component: "button",
+        sx: {
+          alignSelf: "center",
+          textAlign: "center",
+          width: "fit-content",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          ...linkSx,
+        },
+      }
+    : {
+        href,
+        underline: "none",
+        sx: {
+          alignSelf: "center",
+          textAlign: "center",
+          width: "fit-content",
+          ...linkSx,
+        },
+      };
+
   return (
-    <Link
-      href={href}
-      underline="none"
-      sx={{
-        alignSelf: "center",
-        textAlign: "center",
-        width: "fit-content",
-        ...linkSx,
-      }}
+    <Component
+      {...componentProps}
     >
       <Typography
         variant={variant}
@@ -54,6 +73,6 @@ export default function AnimatedTextLink({ href, children, variant = "subtitle2"
       >
         {children}
       </Typography>
-    </Link>
+    </Component>
   );
 }

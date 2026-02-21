@@ -114,7 +114,7 @@ export default function PathsSection() {
               <Typography
                 variant="body2"
                 sx={{
-                  mb: 2,
+                  mb: 0,
                   overflowWrap: "anywhere",
                   wordBreak: "break-word",
                 }}
@@ -122,7 +122,7 @@ export default function PathsSection() {
                 {card.description}
               </Typography>
 
-              <Link href={card.href} underline="none" sx={{ mt: "auto", width: "fit-content" }}>
+              {/* <Link href={card.href} underline="none" sx={{ mt: "auto", width: "fit-content" }}>
                 <Typography
                   variant="subtitle2"
                   className="cardCta"
@@ -135,7 +135,7 @@ export default function PathsSection() {
                 >
                   Explore Path&nbsp;›
                 </Typography>
-              </Link>
+              </Link> */}
             </CardContent>
           </Card>
         ))}

@@ -1,54 +1,66 @@
 import { useState, useRef, useEffect } from "react";
-import {
-  Container,
-  Typography,
-  Box,
-  Button,
-} from "@mui/material";
+import { Container, Typography, Box, Button } from "@mui/material";
 
-import SportsMartialArtsIcon from '@mui/icons-material/SportsMartialArts';
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
-import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import { Link } from "react-router-dom";
 
-import ScheduleTable from "../components/ScheduleTable.jsx";
- import ScheduleCard from "../components/ScheduleCard.jsx";
+import SportsMartialArtsIcon from "@mui/icons-material/SportsMartialArts";
+import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
+import SportsKabaddiIcon from "@mui/icons-material/SportsKabaddi";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import TempleBuddhistIcon from "@mui/icons-material/TempleBuddhist";
+
+import ScheduleCard from "../components/ScheduleCard.jsx";
 import bgPrograms from "../assets/Group 3.svg";
+import bgMembership from "../assets/bg-membership.svg";
 
 export default function Schedule() {
   const [selectedDay, setSelectedDay] = useState(0); // 0 = Monday
   const [showFade, setShowFade] = useState(false);
   const scrollContainerRef = useRef(null);
-  
+
   const weekdays = ["M", "T", "W", "Th", "F", "Sa"];
-  const weekdaysFull = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  
+  const weekdaysFull = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
-    
+
+    // Scroll to top when day changes
+    container.scrollTop = 0;
+
     const checkOverflow = () => {
       const hasScroll = container.scrollHeight > container.clientHeight;
-      setShowFade(hasScroll && container.scrollTop < container.scrollHeight - container.clientHeight - 10);
+      setShowFade(
+        hasScroll &&
+          container.scrollTop <
+            container.scrollHeight - container.clientHeight - 10,
+      );
     };
-    
+
     const handleScroll = () => {
       checkOverflow();
     };
-    
+
     checkOverflow();
     // Check again after a brief delay to account for layout shifts
     const timer = setTimeout(checkOverflow, 100);
-    
+
     container.addEventListener("scroll", handleScroll);
-    
+
     return () => {
       clearTimeout(timer);
       container.removeEventListener("scroll", handleScroll);
     };
   }, [selectedDay]);
-  
+
   const calculateEndTime = (startTime, duration) => {
     // Parse start time
     const timeParts = startTime.match(/(\d+):(\d+)\s(AM|PM)/i);
@@ -64,7 +76,7 @@ export default function Schedule() {
     let totalMinutes = 0;
     const hourMatch = duration.match(/(\d+)h/);
     const minMatch = duration.match(/(\d+)m/);
-    
+
     if (hourMatch) totalMinutes += parseInt(hourMatch[1]) * 60;
     if (minMatch) totalMinutes += parseInt(minMatch[1]);
 
@@ -83,74 +95,164 @@ export default function Schedule() {
   const getIconForType = (type) => {
     switch (type) {
       case "parents-child":
-        return <FamilyRestroomIcon sx={{ fontSize: 40, color: "primary.main" }} />;
+        return (
+          <FamilyRestroomIcon sx={{ fontSize: 40, color: "primary.main" }} />
+        );
       case "kids":
-        return <SportsKabaddiIcon sx={{ fontSize: 40, color: "primary.main" }} />;
+        return (
+          <SportsKabaddiIcon sx={{ fontSize: 40, color: "primary.main" }} />
+        );
       case "self-defense":
-        return <HealthAndSafetyIcon sx={{ fontSize: 40, color: "primary.main" }} />;
+        return (
+          <HealthAndSafetyIcon sx={{ fontSize: 40, color: "primary.main" }} />
+        );
       case "open-mat":
         return <AspectRatioIcon sx={{ fontSize: 40, color: "primary.main" }} />;
+      case "fundamentals":
+        return (
+          <TempleBuddhistIcon sx={{ fontSize: 40, color: "primary.main" }} />
+        );
       default:
-        return <SportsMartialArtsIcon sx={{ fontSize: 40, color: "primary.main" }} />;
+        return (
+          <SportsMartialArtsIcon sx={{ fontSize: 40, color: "primary.main" }} />
+        );
     }
   };
-  
+
   const scheduleData = [
     // Monday
     [
-      { title: "Adults & Teens", time: "7:00 AM", duration: "1h 15m", type: "default" },
-      { title: "Adults & Teens", time: "12:00 PM", duration: "1h", type: "default" },
+      {
+        title: "Adults & Teens",
+        time: "7:00 AM",
+        duration: "1h 15m",
+        type: "default",
+      },
+      {
+        title: "Adults & Teens",
+        time: "12:00 PM",
+        duration: "1h",
+        type: "default",
+      },
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
-      { title: "Fundamentals", time: "5:45 PM", duration: "1h", type: "default" },
-      { title: "Adults & Teens", time: "6:45 PM", duration: "1h 15m", type: "default" },
+      {
+        title: "Fundamentals",
+        time: "5:45 PM",
+        duration: "1h",
+        type: "fundamentals",
+      },
+      {
+        title: "Adults & Teens",
+        time: "6:45 PM",
+        duration: "1h 15m",
+        type: "default",
+      },
     ],
     // Tuesday
     [
-      { title: "Adults & Teens", time: "12:00 PM", duration: "1h", type: "default" },
+      {
+        title: "Adults & Teens",
+        time: "12:00 PM",
+        duration: "1h",
+        type: "default",
+      },
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
-      { title: "Fundamentals", time: "5:45 PM", duration: "1h", type: "default" },
-      { title: "Adults & Teens", time: "6:45 PM", duration: "1h 15m", type: "default" },
+      {
+        title: "Fundamentals",
+        time: "5:45 PM",
+        duration: "1h",
+        type: "fundamentals",
+      },
+      {
+        title: "Adults & Teens",
+        time: "6:45 PM",
+        duration: "1h 15m",
+        type: "default",
+      },
     ],
     // Wednesday
     [
-      { title: "Adults & Teens", time: "12:00 PM", duration: "1h", type: "default" },
+      {
+        title: "Adults & Teens",
+        time: "12:00 PM",
+        duration: "1h",
+        type: "default",
+      },
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
-      { title: "Parent/Child", time: "5:45 PM", duration: "1h", type: "parents-child" },
-      { title: "Adults & Teens", time: "6:45 PM", duration: "1h 15m", type: "default" },
+      {
+        title: "Parent/Child",
+        time: "5:45 PM",
+        duration: "1h",
+        type: "parents-child",
+      },
+      {
+        title: "Adults & Teens",
+        time: "6:45 PM",
+        duration: "1h 15m",
+        type: "default",
+      },
     ],
     // Thursday
     [
-      { title: "Adults & Teens", time: "12:00 PM", duration: "1h", type: "default" },
+      {
+        title: "Adults & Teens",
+        time: "12:00 PM",
+        duration: "1h",
+        type: "default",
+      },
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
-      { title: "Women's Self Defense", time: "5:45 PM", duration: "1h", type: "self-defense" },
-      { title: "Adults & Teens", time: "6:45 PM", duration: "1h 15m", type: "default" },
+      {
+        title: "Women's Self Defense",
+        time: "5:45 PM",
+        duration: "1h",
+        type: "self-defense",
+      },
+      {
+        title: "Adults & Teens",
+        time: "6:45 PM",
+        duration: "1h 15m",
+        type: "default",
+      },
     ],
     // Friday
     [
-      { title: "Adults & Teens", time: "9:00 AM", duration: "45m", type: "default" },
+      {
+        title: "Adults & Teens",
+        time: "9:00 AM",
+        duration: "45m",
+        type: "default",
+      },
     ],
     // Saturday
     [
-      { title: "Members Open Mat", time: "10:00 AM", duration: "2h", type: "open-mat" },
+      {
+        title: "Members Open Mat",
+        time: "10:00 AM",
+        duration: "2h",
+        type: "open-mat",
+      },
     ],
   ];
   return (
     <Box
       sx={{
-        backgroundImage: `url(${bgPrograms})`,
+        backgroundImage: {
+          xs: `url(${bgMembership})`,
+          md: `url(${bgPrograms})`,
+        },
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
-        backgroundSize: "cover",
+        backgroundSize: { xs: "fill", md: "cover" },
       }}
     >
       <Container
         maxWidth="lg"
         sx={{
-          py: {xs: 4, md: 8},
+          py: { xs: 4, md: 8 },
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
@@ -172,8 +274,9 @@ export default function Schedule() {
               letterSpacing: 0.5,
             }}
           >
-            Check the calendar below for the most up-to-date class schedule. Looking to drop in? Check out our
-            drop-in policy here.
+            Check the calendar below for the most up-to-date class schedule.
+            Looking to drop in? Check out our drop-in policy{" "}
+            <Link to="/dropin">here</Link>
           </Typography>
         </Box>
 
@@ -184,14 +287,13 @@ export default function Schedule() {
 
         {/* NEW VIEW */}
         <Box sx={{ width: "100%" }}>
-          
           {/* Weekday Selector Bar */}
           <Box
             sx={{
               display: "flex",
               justifyContent: "center",
-              gap: .5,
-              mb: {xs: 2, md: 1},
+              gap: 0.5,
+              mb: { xs: 2, md: 1 },
               overflow: "hidden",
             }}
           >
@@ -221,10 +323,22 @@ export default function Schedule() {
                   },
                 }}
               >
-                <Typography variant="h5" sx={{ fontWeight: "inherit", display: { xs: "block", md: "none" } }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: "inherit",
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
                   {day}
                 </Typography>
-                <Typography variant="h5" sx={{ fontWeight: "inherit", display: { xs: "none", md: "block" } }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: "inherit",
+                    display: { xs: "none", md: "block" },
+                  }}
+                >
                   {weekdaysFull[index]}
                 </Typography>
               </Button>
@@ -241,8 +355,18 @@ export default function Schedule() {
               maxHeight: { xs: "auto", md: "500px" },
               overflowY: { xs: "visible", md: "auto" },
               pr: { xs: 0, md: 1 },
-              maskImage: { xs: "none", md: showFade ? "linear-gradient(to bottom, black 85%, transparent 100%)" : "none" },
-              WebkitMaskImage: { xs: "none", md: showFade ? "linear-gradient(to bottom, black 85%, transparent 100%)" : "none" },
+              maskImage: {
+                xs: "none",
+                md: showFade
+                  ? "linear-gradient(to bottom, black 85%, transparent 100%)"
+                  : "none",
+              },
+              WebkitMaskImage: {
+                xs: "none",
+                md: showFade
+                  ? "linear-gradient(to bottom, black 85%, transparent 100%)"
+                  : "none",
+              },
               "&::-webkit-scrollbar": {
                 width: "8px",
               },
@@ -269,7 +393,6 @@ export default function Schedule() {
             ))}
           </Box>
         </Box>
-        
       </Container>
     </Box>
   );

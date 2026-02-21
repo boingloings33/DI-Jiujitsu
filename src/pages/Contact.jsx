@@ -20,6 +20,7 @@ import bgPrograms from "../assets/Group 3.svg";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import emailjs from "emailjs-com";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   const [mapLoaded, setMapLoaded] = React.useState(false);
@@ -52,7 +53,9 @@ export default function Contact() {
   });
 
   const selectedInterests = watch("interests");
-  const hasSelectedInterest = Object.values(selectedInterests).some((val) => val);
+  const hasSelectedInterest = Object.values(selectedInterests).some(
+    (val) => val,
+  );
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -66,7 +69,7 @@ export default function Contact() {
           const labels = {
             dropIn: "Drop-in Class",
             adultMembership: "Adult Membership + Pricing",
-            futureKids: "Future Kids Program",
+            futureKids: "Kids Program",
             other: "Other",
           };
           return labels[key];
@@ -86,7 +89,7 @@ export default function Contact() {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams
+        templateParams,
       );
 
       setSubmitStatus({
@@ -116,13 +119,13 @@ export default function Contact() {
     >
       <Container
         sx={{
-          py: {xs: 4, md: 8},
+          py: { xs: 4, md: 8 },
           textAlign: "center",
         }}
       >
         <Box>
           <Typography variant="h2" gutterBottom color="primary.main">
-            Connect
+            Get in Touch
           </Typography>
           <Typography
             variant="body1"
@@ -133,7 +136,9 @@ export default function Contact() {
               letterSpacing: 0.5,
             }}
           >
-            We look forward to rolling with you! If you have any questions, please don't hesitate to contact us.
+            We look forward to rolling with you! If you have any questions check
+            out our <Link to="/faq">FAQs</Link>, otherwise please don't hesitate
+            to contact us.
           </Typography>
         </Box>
         <Divider sx={{ width: "100%", my: 4 }} />
@@ -175,7 +180,11 @@ export default function Contact() {
                     left: -4,
                   }}
                 />
-                <Typography variant="body1" color="text.secondary" textAlign="left">
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  textAlign="left"
+                >
                   126 Seven Farms Drive, Suite 270 Daniel Island, SC 29492
                 </Typography>
               </Box>
@@ -234,7 +243,11 @@ export default function Contact() {
                     left: -4,
                   }}
                 />
-                <Typography variant="body1" color="text.secondary" textAlign="left">
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  textAlign="left"
+                >
                   (843) 343-0004
                 </Typography>
               </Box>
@@ -253,7 +266,11 @@ export default function Contact() {
                     left: -4,
                   }}
                 />
-                <Typography variant="body1" color="text.secondary" textAlign="left">
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  textAlign="left"
+                >
                   info@dijiujitsu.com
                 </Typography>
               </Box>
@@ -355,7 +372,10 @@ export default function Contact() {
               />
               {/* Interests */}
               <Box sx={{ mb: 2 }}>
-                <Typography variant="subtitle2" sx={{ mb: 1, color: "text.secondary", letterSpacing: 0.5 }}>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ mb: 1, color: "text.secondary", letterSpacing: 0.5 }}
+                >
                   What are you interested in?
                 </Typography>
                 <FormGroup>
@@ -418,7 +438,7 @@ export default function Contact() {
                             }}
                           />
                         }
-                        label="Future Kids Program"
+                        label="Kids Program"
                       />
                     )}
                   />

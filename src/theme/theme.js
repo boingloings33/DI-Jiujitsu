@@ -1,7 +1,9 @@
 // src/theme/theme.js
 import { createTheme, alpha } from "@mui/material/styles";
+import { color } from "motion";
 const CINZEL = '"Cinzel", serif';
-const LATO = '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+const LATO =
+  '"Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
 const BRAND = {
   primary: "#113D5D",
   secondary: "#006255",
@@ -191,10 +193,19 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: BRAND.background
+          backgroundColor: BRAND.background,
         },
-         html: {
+        html: {
           backgroundColor: BRAND.primary,
+        },
+        a: {
+          textDecoration: "none",
+          color: BRAND.secondary,
+          fontWeight: 700,
+          "&:hover": {
+            color: alpha(BRAND.secondary, 0.8),
+            textDecoration: "underline",
+          },
         },
       },
     },
@@ -336,7 +347,8 @@ export const theme = createTheme({
           fontWeight: "regular",
           letterSpacing: 1.4,
 
-          transition: "color 180ms ease, transform 180ms ease, background-color 380ms ease",
+          transition:
+            "color 180ms ease, transform 180ms ease, background-color 380ms ease",
 
           "&:hover": {
             backgroundColor: alpha(BRAND.primary, 0.05),
