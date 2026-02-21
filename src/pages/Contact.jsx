@@ -78,7 +78,7 @@ export default function Contact() {
 
       // Prepare email template variables
       const templateParams = {
-        to_email: "baiolemi@gmail.com",
+        to_email: "info@dijiujitsu.com",
         from_name: data.name,
         from_email: data.email,
         interests: selectedInterestsList,
