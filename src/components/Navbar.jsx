@@ -23,6 +23,7 @@ const pages = [
   { label: "Membership", path: "/membership" },
   { label: "Schedule", path: "/schedule" },
   { label: "About Us", path: "/about" },
+  { label: "FAQs", path: "/faq" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -121,6 +122,7 @@ export default function Navbar() {
                   component={Link}
                   to={p.path}
                   onClick={() => setOpen(false)}
+                  sx={{ fontSize: "1.1rem" }}
                 >
                   {p.label}
                 </ListItemButton>
