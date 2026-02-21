@@ -137,7 +137,7 @@ export default function Schedule() {
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
       {
-        title: "Fundamentals",
+        title: "Adults (Fundamentals)",
         time: "5:45 PM",
         duration: "1h",
         type: "fundamentals",
@@ -160,7 +160,7 @@ export default function Schedule() {
       { title: "Kids (6-9)", time: "4:00 PM", duration: "45m", type: "kids" },
       { title: "Kids (10-12)", time: "4:45 PM", duration: "45m", type: "kids" },
       {
-        title: "Fundamentals",
+        title: "Adults (Fundamentals)",
         time: "5:45 PM",
         duration: "1h",
         type: "fundamentals",

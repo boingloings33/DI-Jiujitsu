@@ -540,7 +540,7 @@ export default function Home() {
                   fontSize: { md: "1.1rem", lg: "1.3rem", xl: "1.5rem" },
                 }}
               >
-                Fundamentals
+                Adults (Fundamentals)
               </Typography>
               <Typography
                 variant="body2"
@@ -550,7 +550,7 @@ export default function Home() {
                   lineHeight: 1.6,
                 }}
               >
-                MON—THURS <br /> 6:00PM — 7:30PM
+                MON—TUE <br /> 5:45PM — 6:45PM
               </Typography>
             </Box>
           </Box>
