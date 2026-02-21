@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Box, Typography, Divider } from "@mui/material";
+import { Box, Typography, Divider, Skeleton } from "@mui/material";
 import {
   NextButton,
   PrevButton,
@@ -12,6 +12,47 @@ const TWEEN_FACTOR_BASE = 0.84;
 
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
+
+const CoachImage = ({ src, alt }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setTimeout(() => setIsLoaded(true), 2000); // 2 second delay to see skeleton
+  };
+
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: { xs: "5 / 6", md: "5 / 8" },
+        overflow: "hidden",
+      }}
+    >
+      {!isLoaded && (
+        <Skeleton
+          variant="rectangular"
+          width="100%"
+          height="100%"
+          sx={{ position: "absolute", top: 0, left: 0 }}
+        />
+      )}
+      <Box
+        component="img"
+        src={src}
+        alt={alt}
+        onLoad={handleImageLoad}
+        sx={{
+          height: { xs: "500px", md: "90%" },
+          width: "101%",
+          objectFit: "cover",
+          objectPosition: { xs: "50% 20%", md: "center center" },
+          opacity: isLoaded ? 1 : 0,
+        }}
+      />
+    </Box>
+  );
+};
 
 const CoachCarousel = ({ slides, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
@@ -123,26 +164,7 @@ const CoachCarousel = ({ slides, options }) => {
                     order: { xs: 1, md: 0 },
                   }}
                 >
-                  <Box
-                    sx={{
-                      position: "relative",
-                      width: "100%",
-                      aspectRatio: { xs: "5 / 6", md: "5 / 8" },
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Box
-                      component="img"
-                      src={slide.image}
-                      alt={slide.title}
-                      sx={{
-                        height: { xs: "500px", md: "90%" },
-                        width: "101%",
-                        objectFit: "cover",
-                        objectPosition: { xs: "50% 20%", md: "center center" },
-                      }}
-                    />
-                  </Box>
+                  <CoachImage src={slide.image} alt={slide.title} />
                 </Box>
 
                 {/* Text column */}

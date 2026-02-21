@@ -1,5 +1,6 @@
 import { Toolbar, CssBaseline } from "@mui/material";
 import Layout from "./components/Layout";
+import PageFadeIn from "./components/PageFadeIn";
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
 import Programs from "./pages/Programs";
@@ -12,7 +13,7 @@ import DropIn from "./pages/DropIn";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer";
 import ScrollCleanup from "./utils/ScrollCleanup.jsx";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
@@ -20,6 +21,8 @@ import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <CssBaseline />
@@ -28,13 +31,55 @@ function App() {
       <ScrollCleanup />
       <Routes>
         <Route path="/" element={<Home2 />} />
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/membership" element={<Membership />} />
-        <Route path="/schedule" element={<Schedule />} />
+        <Route
+          path="/programs"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <Programs />
+            </PageFadeIn>
+          }
+        />
+        <Route
+          path="/membership"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <Membership />
+            </PageFadeIn>
+          }
+        />
+        <Route
+          path="/schedule"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <Schedule />
+            </PageFadeIn>
+          }
+        />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/dropin" element={<DropIn />} />
+        <Route
+          path="/contact"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <Contact />
+            </PageFadeIn>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <Faq />
+            </PageFadeIn>
+          }
+        />
+        <Route
+          path="/dropin"
+          element={
+            <PageFadeIn key={location.pathname}>
+              <DropIn />
+            </PageFadeIn>
+          }
+        />
       </Routes>
       <Footer />
     </>
