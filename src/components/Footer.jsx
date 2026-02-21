@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
@@ -32,15 +32,42 @@ export default function Footer() {
       }}
     >
       <Container>
-        <Grid container spacing={8} justifyContent="space-between" alignItems="flex-start">
-          {/* Column 1 — Logo + blurb */}
-          <Grid item xs={12} md={6} display="flex">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: { xs: 4, md: 6 },
+          }}
+        >
+          {/* Row 1 — Logo (left) + Explore (right) */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: { xs: "space-between", md: "flex-start" },
+              alignItems: "flex-start",
+              gap: { xs: 4, md: 8 },
+              width: { xs: "100%", md: "50%" },
+            }}
+          >
             <Box sx={{ mb: 2 }}>
-              <Box component="img" src={logo} alt="Logo" sx={{ height: 40, mb: 2 }} />
+              <Box
+                component="img"
+                src={logo}
+                alt="Logo"
+                sx={{ height: 40, mb: 2 }}
+              />
 
-              <Typography variant="body2" color="text.footerAlt" sx={{ maxWidth: 270 }}>
-                A place of discipline, respect, and mastery. Dedicated to the traditional art of Brazilian Jiu
-                Jitsu and the cultivation of the human spirit.
+              <Typography
+                variant="body2"
+                color="text.footerAlt"
+                sx={{ maxWidth: 160 }}
+              >
+                A place of discipline, respect, and mastery. Dedicated to the
+                traditional art of Brazilian Jiu Jitsu and the cultivation of
+                the human spirit.
               </Typography>
             </Box>
 
@@ -50,11 +77,16 @@ export default function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 1,
-                alignItems: "flex-start",
+                gap: 2,
+                alignItems: { xs: "flex-end", md: "flex-start" },
+                textAlign: { xs: "right", md: "left" },
               }}
             >
-              <Typography variant="footerSubtitle" gutterBottom>
+              <Typography
+                variant="footerSubtitle"
+                gutterBottom
+                sx={{ fontWeight: 700 }}
+              >
                 Explore
               </Typography>
               {pages.map((page) => (
@@ -75,14 +107,24 @@ export default function Footer() {
                 </Typography>
               ))}
             </Box>
-          </Grid>
-          {/* content later */}
-
-          {/* Column 3 — Visit Us */}
-          <Grid item xs={12} md={6} display="flex">
+          </Box>
+          {/* Row 2 — Visit Us (left) + Connect (right) */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: { xs: "space-between", md: "flex-end" },
+              width: { xs: "100%", md: "10%" },
+              gap: { xs: 4, md: 5 },
+            }}
+          >
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {/* Address */}
-              <Typography variant="footerSubtitle" gutterBottom>
+              <Typography
+                variant="footerSubtitle"
+                gutterBottom
+                sx={{ fontWeight: 700 }}
+              >
                 Visit Us
               </Typography>
               <Box
@@ -90,7 +132,7 @@ export default function Footer() {
                   display: "flex",
                   gap: 1.5,
                   alignItems: "flex-start",
-                  maxWidth: 300,
+                  maxWidth: 260,
                 }}
               >
                 <LocationOnOutlinedIcon
@@ -134,12 +176,22 @@ export default function Footer() {
               </Box>
             </Box>
 
-            {/* content later */}
-
             {/* Column 4 — Connect */}
 
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <Typography variant="footerSubtitle" gutterBottom>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+                alignItems: "flex-end",
+                textAlign: "right",
+              }}
+            >
+              <Typography
+                variant="footerSubtitle"
+                gutterBottom
+                sx={{ fontWeight: 700 }}
+              >
                 Connect
               </Typography>
               {/* Social icons row */}
@@ -172,13 +224,16 @@ export default function Footer() {
               </Box>
 
               {/* Copyright */}
-              <Typography variant="footerAlt" color="text.footerAlt" sx={{ maxWidth: 170, marginTop: 2 }}>
+              <Typography
+                variant="footerAlt"
+                color="text.footerAlt"
+                sx={{ maxWidth: 170, marginTop: 2 }}
+              >
                 © 2026 Daniel Island Jiu Jitsu. All rights reserved.
               </Typography>
             </Box>
-          </Grid>
-          {/* content later */}
-        </Grid>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

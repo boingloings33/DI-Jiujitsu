@@ -28,9 +28,17 @@ const CoachImage = ({ src, alt }) => {
       {!isLoaded && (
         <Skeleton
           variant="rectangular"
+          animation="pulse"
           width="100%"
           height="100%"
-          sx={{ position: "absolute", top: 0, left: 0 }}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            borderRadius: 1,
+            backgroundColor: "rgba(220, 217, 208, 0.35)",
+            animationDuration: "0.5s",
+          }}
         />
       )}
       <Box
