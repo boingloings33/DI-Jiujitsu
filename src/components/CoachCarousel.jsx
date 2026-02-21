@@ -16,10 +16,6 @@ const numberWithinRange = (number, min, max) =>
 const CoachImage = ({ src, alt }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const handleImageLoad = () => {
-    setTimeout(() => setIsLoaded(true), 2000); // 2 second delay to see skeleton
-  };
-
   return (
     <Box
       sx={{
@@ -41,7 +37,7 @@ const CoachImage = ({ src, alt }) => {
         component="img"
         src={src}
         alt={alt}
-        onLoad={handleImageLoad}
+        onLoad={() => setIsLoaded(true)}
         sx={{
           height: { xs: "500px", md: "90%" },
           width: "101%",

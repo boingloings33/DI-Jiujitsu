@@ -1,6 +1,14 @@
-import { Box, Container, Typography, Button, Grid, Card, CardContent } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardContent,
+} from "@mui/material";
 import heroBg from "../assets/tom-hero.webp";
-import heroLogo from "../assets/logo-tagline-white.webp"
+import heroLogo from "../assets/logo-tagline-white.webp";
 import bgMission from "../assets/bg-mission.svg";
 import bgSchedule from "../assets/bg-schedule.svg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -183,8 +191,7 @@ export default function Home() {
               backgroundSize: "cover",
               backgroundPosition: { xs: "20%", md: "top" },
               zIndex: -1,
-              filter: "brightness(.65)"
-             
+              filter: "brightness(.65)",
             }}
           />
           {/* Dark overlay for better text contrast */}
@@ -200,8 +207,11 @@ export default function Home() {
             }}
           />
           {/* Content */}
-          <Box ref={heroContentRef} maxWidth="700px" sx={{ px: 2, position: "relative", zIndex: 1, mb: 8 }}>
-            
+          <Box
+            ref={heroContentRef}
+            maxWidth="700px"
+            sx={{ px: 2, position: "relative", zIndex: 1, mb: 8 }}
+          >
             {/* <Typography
               variant="h1"
               gutterBottom
@@ -223,12 +233,12 @@ export default function Home() {
               Welcome to Daniel Island Jiu Jitsu. A sanctuary for the study of Brazilian Jiu Jitsu, rooted in
               tradition and forged in the modern era.
             </Typography> */}
-            
+
             <Box
               component="img"
               src={heroLogo}
               alt="Daniel Island Jiu Jitsu logo"
-              sx={{ maxWidth: "84%", height: "auto", mb: 2  }}
+              sx={{ maxWidth: "84%", height: "auto", mb: 2 }}
             />
             <Button
               variant="hero"
@@ -238,7 +248,10 @@ export default function Home() {
                 const header = document.querySelector("header");
                 const headerHeight = header ? header.offsetHeight : 0;
                 if (target) {
-                  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                  const top =
+                    target.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    headerHeight;
                   window.scrollTo({ top, behavior: "smooth" });
                 }
               }}
@@ -268,7 +281,7 @@ export default function Home() {
             zIndex: 1,
           }}
         >
-          <Container maxWidth="lg" >
+          <Container maxWidth="lg">
             <Box
               ref={missionRef}
               sx={{
@@ -295,8 +308,10 @@ export default function Home() {
                   maxWidth: 800,
                 }}
               >
-                At Daniel Island Jiu Jitsu, our mission is to empower individuals of all ages to become their best
-                selves by building character and confidence through the transformative practice of martial arts.
+                At Daniel Island Jiu Jitsu, our mission is to empower
+                individuals of all ages to become their best selves by building
+                character and confidence through the transformative practice of
+                martial arts.
               </Typography>
               {/* Bottom accent line - positioned relative to text */}
               {/* <Box
@@ -374,7 +389,11 @@ export default function Home() {
           </Box>
 
           {/* Enhanced Cards Grid */}
-          <Grid container  spacing={{ xs: 3, md: 4, lg: 5 }} justifyContent="center">
+          <Grid
+            container
+            spacing={{ xs: 3, md: 4, lg: 5 }}
+            justifyContent="center"
+          >
             <Grid item xs={12}>
               <Cards />
             </Grid>
@@ -449,8 +468,8 @@ export default function Home() {
                 mx: "auto",
               }}
             >
-              Consistency is the key to mastery. Our doors are open daily for anyone ready to learn, grow, and have
-              fun along the way.
+              Consistency is the key to mastery. Our doors are open daily for
+              anyone ready to learn, grow, and have fun along the way.
             </Typography>
           </Box>
         </Container>
@@ -476,7 +495,6 @@ export default function Home() {
               display: "flex",
               alignItems: "center",
               transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-              cursor: "pointer",
               position: "relative",
               overflow: "hidden",
               "&::before": {
@@ -494,6 +512,7 @@ export default function Home() {
                 transform: "translateY(-8px)",
                 boxShadow: `0 12px 40px ${alpha("#000", 0.3)}`,
                 borderColor: alpha("#F9F7F2", 0.3),
+
                 "&::before": {
                   left: "100%",
                 },
@@ -546,7 +565,6 @@ export default function Home() {
               display: "flex",
               alignItems: "center",
               transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-              cursor: "pointer",
               position: "relative",
               overflow: "hidden",
               "&::before": {
@@ -663,10 +681,14 @@ export default function Home() {
               color: "text.primary",
             }}
           >
-            Take the first step. Drop in, watch a class, meet our instructors, and experience the dojo for
-            yourself!
+            Take the first step. Drop in, watch a class, meet our instructors,
+            and experience the dojo for yourself!
           </Typography>
-          <Button onClick={() => navigate("/contact")} variant="outlined" sx={{ paddingY: 2, paddingX: 8 }}>
+          <Button
+            onClick={() => navigate("/contact")}
+            variant="outlined"
+            sx={{ paddingY: 2, paddingX: 8 }}
+          >
             Get in Touch
           </Button>
         </Container>
