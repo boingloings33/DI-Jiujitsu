@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function ScrollCleanup() {
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Scroll to top on route change
     window.scrollTo(0, 0);
 
