@@ -5,8 +5,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Skeleton,
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import { useState } from "react";
+
 export default function Section({
   imageSrc,
   imageAlt = "",
@@ -16,6 +19,7 @@ export default function Section({
   paragraph,
   list = [],
 }) {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const isImageLeft = imagePosition === "left";
 
   return (
@@ -112,14 +116,42 @@ export default function Section({
         sx={{
           flex: "1 1 60%",
           minHeight: "27.5rem",
-          backgroundImage: `url(${imageSrc})`,
+          position: "relative",
+          backgroundImage: isImageLoaded ? `url(${imageSrc})` : "none",
           backgroundSize: "cover",
           backgroundPosition: "center",
           order: { xs: 2, md: 0 },
         }}
         role="img"
         aria-label={imageAlt}
-      />
+      >
+        {!isImageLoaded && (
+          <Skeleton
+            variant="rectangular"
+            animation="pulse"
+            width="100%"
+            height="100%"
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              borderRadius: 1,
+              backgroundColor: "rgba(220, 217, 208, 0.35)",
+              animationDuration: "0.5s",
+            }}
+          />
+        )}
+        {/* Hidden img to detect when image is loaded */}
+        <Box
+          component="img"
+          src={imageSrc}
+          alt={imageAlt}
+          onLoad={() => setIsImageLoaded(true)}
+          sx={{
+            display: "none",
+          }}
+        />
+      </Box>
     </Box>
   );
 }
