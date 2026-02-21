@@ -525,6 +525,7 @@ export default function Home() {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                justifyContent: { xs: "center", md: "flex-start" },
                 gap: { xs: 2, lg: 3 },
                 px: { xs: 3, md: 4, lg: 5 },
                 py: { xs: 3, lg: 4 },
@@ -594,6 +595,7 @@ export default function Home() {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                justifyContent: { xs: "center", md: "flex-start" },
                 gap: { xs: 2, lg: 3 },
                 px: { xs: 3, md: 4, lg: 5 },
                 py: { xs: 3, lg: 4 },
@@ -666,7 +668,7 @@ export default function Home() {
             color="primary.main"
             sx={{
               mb: { xs: 3, md: 4 },
-              fontSize: { md: "48px", xl: "64px" },
+              fontSize: { xs: "36px", md: "64px" },
             }}
           >
             Daniel Island Jiu Jitsu is Now Open!
