@@ -1,4 +1,11 @@
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 export default function Section({
   imageSrc,
@@ -22,25 +29,9 @@ export default function Section({
         alignItems: "stretch",
         justifyContent: "center",
         gap: { xs: 4, md: 6 },
-
-        // mb: 6,
       }}
     >
-      {/* Image */}
-      <Box
-        sx={{
-          flex: "1 1 60%",
-          minHeight: "27.5rem",
-          backgroundImage: `url(${imageSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-
-          // outline: "px solid rgba(120, 98, 72, 0.48)",
-        }}
-        role="img"
-        aria-label={imageAlt}
-      />
-
+      {/* On mobile, show content first, then image. On desktop, order depends on imagePosition */}
       {/* Content */}
       <Box
         sx={{
@@ -49,6 +40,7 @@ export default function Section({
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "flex-start",
+          order: { xs: 1, md: 0 },
         }}
       >
         {/* Pre-title */}
@@ -64,13 +56,11 @@ export default function Section({
             {preTitle}
           </Typography>
         )}
-
         {title && (
           <Typography variant="h3" sx={{ mb: 1 }}>
             {title}
           </Typography>
         )}
-
         <Box
           sx={{
             width: 64,
@@ -79,7 +69,6 @@ export default function Section({
             mb: 2,
           }}
         />
-
         {paragraph && (
           <Typography
             variant="body1"
@@ -94,7 +83,6 @@ export default function Section({
             {paragraph}
           </Typography>
         )}
-
         {list.length > 0 && (
           <List disablePadding>
             {list.map((item, index) => (
@@ -119,6 +107,19 @@ export default function Section({
           </List>
         )}
       </Box>
+      {/* Image */}
+      <Box
+        sx={{
+          flex: "1 1 60%",
+          minHeight: "27.5rem",
+          backgroundImage: `url(${imageSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          order: { xs: 2, md: 0 },
+        }}
+        role="img"
+        aria-label={imageAlt}
+      />
     </Box>
   );
 }
