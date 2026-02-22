@@ -135,7 +135,10 @@ export default function Navbar() {
                   sx={{
                     fontSize: "1.1rem",
                     color: pathname === p.path ? "secondary.main" : "inherit",
-                    backgroundColor: pathname === p.path ? alpha(theme.palette.secondary.main, 0.1) : "transparent",
+                    backgroundColor:
+                      pathname === p.path
+                        ? alpha(theme.palette.secondary.main, 0.1)
+                        : "transparent",
                   }}
                 >
                   {p.label}
