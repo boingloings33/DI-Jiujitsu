@@ -12,12 +12,21 @@ import {
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/logo-main.webp";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import theme from "../theme/theme.js";
-const pages = [
+const desktopPages = [
+  { label: "Home", path: "/" },
+  { label: "Programs", path: "/programs" },
+  { label: "Membership", path: "/membership" },
+  { label: "Schedule", path: "/schedule" },
+  { label: "About Us", path: "/about" },
+  { label: "Contact", path: "/contact" },
+];
+
+const mobilePages = [
   { label: "Home", path: "/" },
   { label: "Programs", path: "/programs" },
   { label: "Membership", path: "/membership" },
@@ -29,6 +38,7 @@ const pages = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 40,
@@ -76,7 +86,7 @@ export default function Navbar() {
                 gap: { lg: 0, xl: 0 },
               }}
             >
-              {pages.map((p) => (
+              {desktopPages.map((p) => (
                 <Button
                   variant="nav"
                   key={p.path}
@@ -116,13 +126,17 @@ export default function Navbar() {
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: 250 }}>
           <List>
-            {pages.map((p) => (
+            {mobilePages.map((p) => (
               <ListItem key={p.path} disablePadding>
                 <ListItemButton
                   component={Link}
                   to={p.path}
                   onClick={() => setOpen(false)}
-                  sx={{ fontSize: "1.1rem" }}
+                  sx={{
+                    fontSize: "1.1rem",
+                    color: pathname === p.path ? "secondary.main" : "inherit",
+                    backgroundColor: pathname === p.path ? alpha(theme.palette.secondary.main, 0.1) : "transparent",
+                  }}
                 >
                   {p.label}
                 </ListItemButton>
