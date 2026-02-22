@@ -521,14 +521,16 @@ export default function Home() {
                 background: `linear-gradient(90deg, transparent, ${alpha("#fff", 0.1)}, transparent)`,
                 transition: "left 0.5s ease",
               },
-              "&:hover": {
-                backgroundColor: alpha("#F9F7F2", 0.15),
-                transform: "translateY(-8px)",
-                boxShadow: `0 12px 40px ${alpha("#000", 0.3)}`,
-                borderColor: alpha("#F9F7F2", 0.3),
+              "@media (hover: hover)": {
+                "&:hover": {
+                  backgroundColor: alpha("#F9F7F2", 0.15),
+                  transform: "translateY(-8px)",
+                  boxShadow: `0 12px 40px ${alpha("#000", 0.3)}`,
+                  borderColor: alpha("#F9F7F2", 0.3),
 
-                "&::before": {
-                  left: "100%",
+                  "&::before": {
+                    left: "100%",
+                  },
                 },
               },
             }}
@@ -592,13 +594,15 @@ export default function Home() {
                 background: `linear-gradient(90deg, transparent, ${alpha("#fff", 0.1)}, transparent)`,
                 transition: "left 0.5s ease",
               },
-              "&:hover": {
-                backgroundColor: alpha("#F9F7F2", 0.15),
-                transform: "translateY(-8px)",
-                boxShadow: `0 12px 40px ${alpha("#000", 0.3)}`,
-                borderColor: alpha("#F9F7F2", 0.3),
-                "&::before": {
-                  left: "100%",
+              "@media (hover: hover)": {
+                "&:hover": {
+                  backgroundColor: alpha("#F9F7F2", 0.15),
+                  transform: "translateY(-8px)",
+                  boxShadow: `0 12px 40px ${alpha("#000", 0.3)}`,
+                  borderColor: alpha("#F9F7F2", 0.3),
+                  "&::before": {
+                    left: "100%",
+                  },
                 },
               },
             }}
