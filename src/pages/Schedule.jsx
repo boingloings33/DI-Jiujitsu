@@ -3,7 +3,7 @@ import { Container, Typography, Box, Button } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import SportsMartialArtsIcon from "@mui/icons-material/SportsMartialArts";
+import giBlueUrl from "../assets/svgs/gi-blue.svg";
 import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
 import SportsKabaddiIcon from "@mui/icons-material/SportsKabaddi";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
@@ -114,7 +114,7 @@ export default function Schedule() {
         );
       default:
         return (
-          <SportsMartialArtsIcon sx={{ fontSize: 40, color: "primary.main" }} />
+          <img src={giBlueUrl} alt="gi" style={{ width: 40, height: 40 }} />
         );
     }
   };
