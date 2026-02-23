@@ -25,6 +25,7 @@ export default function AboutUs() {
     {
       image: coachJosh,
       title: "Josh Williams",
+      imagePosition: "50% 10%",
       description:
         "Josh Williams is a two-stripe Brazilian Jiu-Jitsu black belt with a strong foundation in wrestling. He started his journey on the mat as a high school wrestler, later transitioning into Brazilian Jiu-Jitsu and MMA in 2010. Since then, he's competed extensively in both Jiu-Jitsu tournaments and professional MMA bouts.\n\n His style is rooted in wrestling-based Jiu-Jitsu, emphasizing pressure, control, and takedowns. His teaching focuses on core concepts rather than isolated techniques, helping students adapt and apply what they learn across a wide range of positions and skill levels. Josh brings real-world experience, clarity, and intensity to every class.",
     },
@@ -37,6 +38,7 @@ export default function AboutUs() {
     {
       image: coachEmmy,
       title: "Emily Zeller",
+      imagePosition: "50% 30%",
       description:
         "Emily began her Jiu-Jitsu journey in May 2018 while building a workout routine at the UFC Gym in Baton Rouge. Initially drawn to boxing and kickboxing classes, she soon realized she wanted to learn real self-defense, which led her to the gym's Jiu-Jitsu program. During a summer internship in Texas, Emily trained at a Muay Thai and Jiu-Jitsu gym, where her passion for both arts deepened.\n\n After graduating from LSU in May 2019, Emily moved to Charleston and began training exclusively in Jiu-Jitsu under Tom Sheehan. She has earned all of her belt promotions from Tom and was awarded her black belt in October 2025.",
     },

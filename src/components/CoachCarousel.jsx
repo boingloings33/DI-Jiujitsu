@@ -13,7 +13,7 @@ const TWEEN_FACTOR_BASE = 0.84;
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
 
-const CoachImage = ({ src, alt }) => {
+const CoachImage = ({ src, alt, imagePosition }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ const CoachImage = ({ src, alt }) => {
       sx={{
         position: "relative",
         width: "100%",
-        aspectRatio: { xs: "5 / 6", md: "5 / 8" },
+        aspectRatio: { xs: "auto", md: "5 / 8" },
         overflow: "hidden",
       }}
     >
@@ -47,10 +47,14 @@ const CoachImage = ({ src, alt }) => {
         alt={alt}
         onLoad={() => setIsLoaded(true)}
         sx={{
-          height: { xs: "500px", md: "90%" },
+          height: { xs: "300px", md: "90%" },
           width: "101%",
           objectFit: "cover",
-          objectPosition: { xs: "50% 20%", md: "center center" },
+          objectPosition: {
+            xs: imagePosition || "50% 20%",
+            md: "center center",
+          },
+          mb: { xs: 1, md: 0 },
           opacity: isLoaded ? 1 : 0,
         }}
       />
@@ -168,7 +172,11 @@ const CoachCarousel = ({ slides, options }) => {
                     order: { xs: 1, md: 0 },
                   }}
                 >
-                  <CoachImage src={slide.image} alt={slide.title} />
+                  <CoachImage
+                    src={slide.image}
+                    alt={slide.title}
+                    imagePosition={slide.imagePosition}
+                  />
                 </Box>
 
                 {/* Text column */}
@@ -208,7 +216,7 @@ const CoachCarousel = ({ slides, options }) => {
                     sx={{
                       color: "text.secondary",
                       whiteSpace: "pre-wrap",
-                      fontSize: { md: "0.95rem" },
+                      fontSize: { xs: "0.95rem", md: "0.95rem" },
                       multiline: true,
                       mb: { xs: 0, md: 20, lg: 14 },
                     }}
@@ -229,7 +237,7 @@ const CoachCarousel = ({ slides, options }) => {
           gridTemplateColumns: { xs: "auto 1fr auto", md: "auto 1fr" },
           justifyContent: "space-between",
           gap: { xs: "1rem", md: "1.2rem" },
-          mt: { xs: 2, md: 4 },
+          mt: { xs: 0, md: 4 },
           alignItems: "center",
         }}
       >
