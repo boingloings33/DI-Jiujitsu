@@ -30,7 +30,11 @@ export default function PricingCard({ title, subtitle, price, time, bullets }) {
     >
       <CardContent sx={{ flexGrow: 1, p: 0 }}>
         {/* Title */}
-        <Typography variant="h4" gutterBottom>
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ fontSize: { xs: "1.5rem", md: "1.25rem" } }}
+        >
           {title}
         </Typography>
 

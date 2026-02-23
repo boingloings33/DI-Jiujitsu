@@ -83,7 +83,7 @@ export default function Membership() {
             ]}
           />
           <PlanCard
-            title="Parents + Child"
+            title="Parent + Child"
             subtitle="Train together and bond as family!"
             price={80}
             time="month"

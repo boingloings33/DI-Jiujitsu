@@ -291,7 +291,7 @@ export default function Home() {
             bgcolor: "backgroundAlt",
             backgroundImage: `url(${bgMission})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "left",
             zIndex: 1,
           }}
         >
@@ -443,7 +443,7 @@ export default function Home() {
           fontSize: 14,
           backgroundImage: `url(${bgSchedule})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: { xs: "right", md: "center" },
           gap: { xs: 4, md: 6, lg: 7 },
         }}
       >
