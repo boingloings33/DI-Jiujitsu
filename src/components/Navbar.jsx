@@ -150,11 +150,13 @@ export default function Navbar() {
               <Button
                 fullWidth
                 variant="contained"
-                component={Link}
-                to="/contact"
+                component="a"
+                href="https://devinedi.kicksite.net/users/sign_in"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
               >
-                Join Now
+                Members Login
               </Button>
             </Box>
           </List>
